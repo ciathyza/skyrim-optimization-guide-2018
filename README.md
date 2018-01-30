@@ -1,40 +1,9 @@
 
 # Skyrim Optimization Guide 2018
 
-v1.0.0 | _by Ciathyza, 2018/01/26_ | Origin: https://github.com/ciathyza/skyrim-optimization-guide-2018
-
-<!-- MarkdownTOC -->
-
-- Table of Contents
-- 1. Introduction
-  - Why Skyrim LE?
-  - Hardware Reference
-- 2. System Preparation & Optimization
-- 3. Software & Tools
-  - 3.1 Skyrim Script Extender \(SKSE\)
-  - 3.2 Mod Organizer
-  - 3.3 LOOT
-  - 3.4 TES5Edit
-  - 3.5 Wrye Bash
-  - 3.6 Merge Plugins
-  - 3.7 Save Game Script Cleaner
-  - 3.8 ENB And Reshade Manager
-- 4. Ini File Optimization
-  - 4.1 Skyrim.ini
-  - 4.2 Skyrimprefs.ini
-  - 4.3 SKSE.ini
-- 5. Essential Bug Fixes & Patches
-  - 5.1 Crash Fixes Mod & SKSE Plugin Preloader
-- 6. Graphics Modding & Optimization
-  - ENB
-- 7. Modding Tips
-  - General Load Order
-- 8. Essential Mods
-- 9. Troubleshooting
-- 10. Useful Links
-
-<!-- /MarkdownTOC -->
-
+v1.0.0  
+_by Ciathyza, 2018/01/26_  
+Origin: [github.com/ciathyza/skyrim-optimization-guide-2018](https://github.com/ciathyza/skyrim-optimization-guide-2018)
 
 ### Table of Contents
   1. Introduction
@@ -60,7 +29,7 @@ This guide assumes a fairly good grasp of handling and understanding Windows-rel
 
 #### Hardware Reference
 
-As a reference, this guide is based on the following system (measured with http://www.userbenchmark.com):
+As a reference, this guide is based on the following system (measured with [www.userbenchmark.com](http://www.userbenchmark.com)):
 
   - CPU: Intel Core i7-7700K @ 4.2GHz
   - GPU: Zotac GTX 1080
@@ -84,7 +53,7 @@ The following list provides an overview of the most important tools used for mod
 
 #### 3.1 Skyrim Script Extender (SKSE)
 
-Needless to say that you need this since many mods will require SKSE. Download the zipped version from http://skse.silverlock.org/, unzip and copy the following files into your Skyrim install folder (e.g. `C:\Program Files (x86)\Steam\steamapps\common\Skyrim`).
+Needless to say that you need this since many mods will require SKSE. Download the zipped version from [skse.silverlock.org](http://www.userbenchmark.com), unzip and copy the following files into your Skyrim install folder (e.g. `C:\Program Files (x86)\Steam\steamapps\common\Skyrim`).
 
 ```
 skse_1_9_32.dll
@@ -102,13 +71,13 @@ By using the latest version of Mod Organizer (at the time of this writing v2.1.1
 
 ##### Download
 
-Get the latest version of Mod Organizer at https://github.com/LePresidente/modorganizer/releases
+Get the latest version of Mod Organizer at [github.com/LePresidente/modorganizer/releases](https://github.com/LePresidente/modorganizer/releases)
 
 Download the installer .exe and install it wherever you normally install your program files. Since Mod Organizer 2 is 64bit it will go into `C:\Program Files\ModOrganizer` by default.
 
 ##### USVFS
 
-**Optional but recommended**: you might want to join the `ModOrganizerDevs` chat channel on Discord (https://discordapp.com/invite/JdQvBtn). Not only can you get modding-related help from other users there but the `#builds` room provides a download link to the latest USVFS beta version and that's the one you want to use unless there is a final non-beta available in the future.
+**Optional but recommended**: you might want to join the `ModOrganizerDevs` chat channel on Discord ([discordapp.com/invite/JdQvBtn](https://discordapp.com/invite/JdQvBtn)). Not only can you get modding-related help from other users there but the `#builds` room provides a download link to the latest USVFS beta version and that's the one you want to use unless there is a final non-beta available in the future.
 
 USVFS is the file system component that Mod Organizer uses for its file virtualization. If you download the latest version of USVFS (e.g. link named `usvfs 0.3.1-beta5`) you need to unpack the files and manually copy them to your Mod Organizer installation directory. The files needs are:
 
@@ -134,11 +103,16 @@ If you've installed SKSE before Mod Organizer then MO should have picked it up a
   4. Click on 'modify'.
   5. Close.
 
+##### Mod Organizer Tips
+
+  - **Unpack BSAs**: In Mod Organizer's plugin settings you can enable the BSA Unpacker. I recommend this and have Mod Organizer unpack any BSAs when a mod is being installed. This allows you to see which files of the mod are conflicting (override or being overridden) with other mods and you can more easily decide which mod should take preference, ignore certain files, etc.
+  - **Virtual File Access**: Configure your favorite file manager (e.g. [Directory Opus](https://www.gpsoft.com.au/)) to launch via Mod Organizer. This gives you access to the file structure of the *Data* folder as Skyrim will see it when launched. It enables you to browse the asset files that are ultimately used by the game. Then You could for example use a [DDS viewer](https://resource.dopus.com/t/simple-dds-viewer-plugin/2515) to check the textures, etc. Note that this won't work with the Windows Explorer as that Windows process is already running in memory by default so Mod Organizer can't hook its virtualized file system to it. You need an app that is launched and that quits later on.
+
 #### 3.3 LOOT
 
 LOOT is a tool used to sort the load order of ESP files. It uses a master list with information about many published mods to arrange the files into a (hopefully) conflict-free order. It does a fairly good job at ordering your files but depending on the mods you install there might be exceptions where you still have to order manually afterwards. In my experience I found that I always have to order several mods manually and/or tell LOOT that it should place a specific mod after some others so know that you can't blindly rely on it. In addition LOOT is very useful to let you know of mods that need to be cleaned with TESEdit.
 
-Download LOOT from https://github.com/loot/loot/releases/tag/0.12.1
+Download LOOT from [github.com/loot/loot/releases](https://github.com/loot/loot/releases/)
 
 Install it and then add an executable link in Mod Organizer so that you can launch LOOT via Mod Organizer and it 'sees' the virtualized mod files.
 
@@ -146,24 +120,24 @@ Install it and then add an executable link in Mod Organizer so that you can laun
 
 #### 3.4 TES5Edit
 
-TES5Edit is used to clean ESP files and can also be used to make other modifications to ESP files. Download it from https://www.nexusmods.com/skyrim/mods/25859, install it and add a link in Mod Organizer just like you did with LOOT.
+TES5Edit is used to clean ESP files and can also be used to make other modifications to ESP files. Download it from [www.nexusmods.com/skyrim/mods/25859](https://www.nexusmods.com/skyrim/mods/25859), install it and add a link in Mod Organizer just like you did with LOOT.
 
 #### 3.5 Wrye Bash
 
-While Wrye Bash can be used for a lot of mod-related purposes, the main reason for our use is to create bashed patches which are required by some mods. Download it from https://www.nexusmods.com/skyrim/mods/1840, install it and add a link in Mod Organizer just like you did with LOOT.
+While Wrye Bash can be used for a lot of mod-related purposes, the main reason for our use is to create bashed patches which are required by some mods. Download it from [www.nexusmods.com/skyrim/mods/1840](https://www.nexusmods.com/skyrim/mods/1840), install it and add a link in Mod Organizer just like you did with LOOT.
 
 #### 3.6 Merge Plugins
 
-Another tool at our disposal, Merge Plugins is used to merge ESP files together as a workaround to the 256 ESP limit that Skyrim's engine has. By merging multiple compatible ESPs together we can exceed this limit. Download it from https://www.nexusmods.com/skyrim/mods/69905, install it and add a link in Mod Organizer just like you did with LOOT.
+Another tool at our disposal, Merge Plugins is used to merge ESP files together as a workaround to the 256 ESP limit that Skyrim's engine has. By merging multiple compatible ESPs together we can exceed this limit. Download it from [www.nexusmods.com/skyrim/mods/69905](https://www.nexusmods.com/skyrim/mods/69905), install it and add a link in Mod Organizer just like you did with LOOT.
 
 #### 3.7 Save Game Script Cleaner
 
-A tool that can help with savegame cleaning in case you want to remove or update mods while actually playing Skyrim for a change ;). Download it from https://www.nexusmods.com/skyrim/mods/52363, install it and add a link in Mod Organizer just like you did with LOOT.
+A tool that can help with savegame cleaning in case you want to remove or update mods while actually playing Skyrim for a change ;). Download it from [www.nexusmods.com/skyrim/mods/52363](https://www.nexusmods.com/skyrim/mods/52363), install it and add a link in Mod Organizer just like you did with LOOT.
 
 #### 3.8 ENB And Reshade Manager
 
 This tool can be used to backup and restore all ENB-related files from the Skyrim folder and create presets to easily switch ENBs. A real time saver!
-Download it from https://www.nexusmods.com/skyrimspecialedition/mods/4143 and install it. No need to run it via Mod Organizer since MO doesn't manage files that are located directly in the Skyrim root folder.
+Download it from [www.nexusmods.com/skyrimspecialedition/mods/4143](https://www.nexusmods.com/skyrimspecialedition/mods/4143) and install it. No need to run it via Mod Organizer since MO doesn't manage files that are located directly in the Skyrim root folder.
 
 ---
 
@@ -175,7 +149,7 @@ Download it from https://www.nexusmods.com/skyrimspecialedition/mods/4143 and in
 
 #### 4.3 SKSE.ini
 
-Find SKSE.ini by going into Mod Organizer, double-click your SKSE mod (as mentioned in 3.1), Filetree tab, under SKSE/SKSE.ini. If the file isn't there, create it. Make sure the file reflects the following settings:
+Find SKSE.ini by going into Mod Organizer, double-click your SKSE mod (as mentioned in 3.1), Filetree tab, under *SKSE/SKSE.ini*. If the file isn't there, create it. Make sure the file reflects the following settings:
 
 ```
 [Display]
@@ -189,7 +163,7 @@ EnableDiagnostics=1
   - `iTintTextureResolution`: Set this to `2048`. If you get pixelated lips on your character, either delete this line or find the size of your used tint map texture and update the value here.
   - `ClearInvalidRegistrations`: When turned on SKSE tries to clean unused scripts which is good! Set this to `1`.
   - `EnableDiagnostics`: If set to `1` SKSE shows missing ESPs when a savegame is loaded.
-  - `DefaultHeapInitialAllocMB` and `ScrapHeapSizeMB` are obsolete since **meh321's Crash fixes mod** (more below) completely replaces the SKSE memory patch. Therefore these two values should be removed from SKSE.ini.
+  - `DefaultHeapInitialAllocMB` and `ScrapHeapSizeMB` are obsolete since **meh321's Crash fixes mod** (more below) completely replaces the SKSE memory patch. Therefore these two values should be removed from *SKSE.ini*.
 
 ---
 
@@ -223,7 +197,7 @@ The Crash fixes mod fixes many of the bugs, see the mod's website and `CrashFixP
 
 #### General Load Order
 
-It's a good idea to define a categorical mod order in Mod Organizer to prevent chaos from ruling your mod list. However due to the nature of Skyrim mods (assets & ESP files) it's not always possible to follow a strict order since you will have to move textures and ESPs around to suit your mod overriding but you can set up a rough order that follows some mod categories. For example you want texture replacers late in your mod order and mods that only contain SKSE plugins can be anywhere since they don't adhere to a specific load ordering. Here is a categorical order that I'm following for the mod entries in the left pane in Mod Organizer:
+It's a good idea to define a categorical mod order in Mod Organizer to prevent chaos from ruling your mod list. However due to the nature of Skyrim mods (assets & ESP files) it's not always possible to follow a strict order since you will have to move textures and ESPs around to suit your mod overrides but you can set up a 'rough' order that follows some mod categories. For example you want texture replacers late in your mod order and mods that only contain SKSE plugins can be anywhere since they don't adhere to a specific load ordering. Here is a categorical order that I'm following for the mod entries in the left pane in Mod Organizer:
 
 ```
 Official Update
@@ -265,6 +239,8 @@ LOD
 Generated (FNIS, SKSE Configs, etc.)
 ```
 
+Note that you still have to do some exceptions for specific mods in such an order. Several of my mods don't work or look right unless I place them on a higher priority so I order them under *Top Priority*.
+
 ---
 
 ### 8. Essential Mods
@@ -274,7 +250,7 @@ Generated (FNIS, SKSE Configs, etc.)
 ### 9. Troubleshooting
 
   - **Issue**: The lips on my character's skin are pixelated.
-  **Solution**: Find the texture used for the lips tint mask and check its texture size. Edit SKSE.ini and set `iTintTextureResolution` to the size (e.g. 1024, 2048, etc).
+  **Solution**: Find the texture used for the lips tint mask and check its texture size. Edit *SKSE.ini* and set `iTintTextureResolution` to the size (e.g. 1024, 2048, etc).
 
   - **Issue**: Skyrim takes screenshots whenever I press the <key>End</key> key (In particular frustrating if you're a left-hander using the End key as your 'Use' key).
   **Solution**: You most likely have an ENB installed that contains a file named *injector.ini*. It is there where this obnoxious keyboard shortcut hides. You might want to remove all the keyboard assignments defined in this file:

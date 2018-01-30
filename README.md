@@ -1,7 +1,7 @@
 
-# Skyrim Modding & Optimization Guide 2018
+# Skyrim Optimization Guide 2018
 
-_by Ciathyza, 2018/01/26_
+v1.0.0 | _by Ciathyza, 2018/01/26_ | Origin: https://github.com/ciathyza/skyrim-optimization-guide-2018
 
 <!-- MarkdownTOC -->
 
@@ -62,15 +62,15 @@ This guide assumes a fairly good grasp of handling and understanding Windows-rel
 
 As a reference, this guide is based on the following system (measured with http://www.userbenchmark.com):
 
-CPU: Intel Core i7-7700K @ 4.2GHz
-GPU: Zotac GTX 1080
-SSD: Transcend TS1TSSD370S 1TB
-SSD: Samsung 850 Evo 1TB
-HDD: WD Black 1TB
-RAM: Corsair Vengeance LPX DDR4 3000 C15 2x16GB
-MBD: Asus MAXIMUS IX HERO
-OS: Windows 10 64bit
-UserBenchmarks: Game 119%, Desk 105%, Work 88%
+  - CPU: Intel Core i7-7700K @ 4.2GHz
+  - GPU: Zotac GTX 1080
+  - SSD: Transcend TS1TSSD370S 1TB
+  - SSD: Samsung 850 Evo 1TB
+  - HDD: WD Black 1TB
+  - RAM: Corsair Vengeance LPX DDR4 3000 C15 2x16GB
+  - MBD: Asus MAXIMUS IX HERO
+  - OS: Windows 10 64bit
+  - UserBenchmarks: Game 119%, Desk 105%, Work 88%
 
 ---
 
@@ -84,7 +84,8 @@ The following list provides an overview of the most important tools used for mod
 
 #### 3.1 Skyrim Script Extender (SKSE)
 
-Needless to say that you need this since many mods will require SKSE. Dowload the zipped version from http://skse.silverlock.org/, unzip and copy the following files into your Skyrim install folder (e.g. `C:\Program Files (x86)\Steam\steamapps\common\Skyrim`).
+Needless to say that you need this since many mods will require SKSE. Download the zipped version from http://skse.silverlock.org/, unzip and copy the following files into your Skyrim install folder (e.g. `C:\Program Files (x86)\Steam\steamapps\common\Skyrim`).
+
 ```
 skse_1_9_32.dll
 skse_loader.exe
@@ -97,7 +98,7 @@ Install the SKSE `Script` folder incl. contents with Mod Organizer (see below) i
 
 Do yourself a favor and save a lot of headache while modding Skyrim by using **Mod Organizer** as your mod manager. As a matter of fact this guide assumes that you're using Mod Organizer. Contrary to what some guides and users will tell you Mod Organizer isn't hard to understand or hard to use. The important concept to understand with Mod Organizer is that it virtualizes the `Data` folder of Skyrim. What this means is that Mod Organizer stores all installed mods separately, each in its own folder and when Skyrim is launched via Mod Organizer it creates a 'virtual' file structure that resembles the `Data` folder as if all mods were installed physically into it. The advantage is that no files are ever physically overwritten and your Skyrim install folder never gets modified by Mod Organizer which makes modding non-destructive. Mod Organizer will 'override' (not 'overwrite') mod files that are lower in the load order with same-named files that are higher in the load order and thanks to the non-destructiveness you are able to move mods around in the load order without any loss of files. This makes it much easier to experiment with different load orders. This is the biggest advantage of Mod Organizer but by far not the only.
 
-By using the latest version of Mod Organizer (at the time of this writing v2.1.1) you are also able to use one Mod Organizer installlation to properly manage all your Bethesda RPGs (Skyrim, Skyrim SE, Fallout 4, Oblivion, Fallout New Vegas) so you don't have to fumble around with multiple, standalone Mod Organizer installs.
+By using the latest version of Mod Organizer (at the time of this writing v2.1.1) you are also able to use one Mod Organizer installation to properly manage all your Bethesda RPGs (Skyrim, Skyrim SE, Fallout 4, Oblivion, Fallout New Vegas) so you don't have to fumble around with multiple, standalone Mod Organizer installs.
 
 ##### Download
 
@@ -110,6 +111,7 @@ Download the installer .exe and install it wherever you normally install your pr
 **Optional but recommended**: you might want to join the `ModOrganizerDevs` chat channel on Discord (https://discordapp.com/invite/JdQvBtn). Not only can you get modding-related help from other users there but the `#builds` room provides a download link to the latest USVFS beta version and that's the one you want to use unless there is a final non-beta available in the future.
 
 USVFS is the file system component that Mod Organizer uses for its file virtualization. If you download the latest version of USVFS (e.g. link named `usvfs 0.3.1-beta5`) you need to unpack the files and manually copy them to your Mod Organizer installation directory. The files needs are:
+
 ```
 usvfs_proxy_x64.exe
 usvfs_proxy_x86.exe
@@ -120,11 +122,11 @@ You can delete the old `usvfs_proxy.exe`/`usvfs.dll` afterwards.
 
 ##### Mod Files Location
 
-As hinted before, Mod Organizer stores downloaded/installed mods separately from the Skyrim installation directory. The default location for all your Mod Organizer Skyrim-related files is at `C:\Users\yourusername\AppData\Local\ModOrganizer\Skyrim`. Mod Organizer allows you to store these files in a different location **but it is recommended to have all installed mods on the same physical harddisk on which your Skyrim is installed**. If you store your installed mods on a different drive Skyrim will have to access files from two different drives which will decrease load performance.
+As hinted before, Mod Organizer stores downloaded/installed mods separately from the Skyrim installation directory. The default location for all your Mod Organizer Skyrim-related files is at `C:\Users\yourusername\AppData\Local\ModOrganizer\Skyrim`. Mod Organizer allows you to store these files in a different location **but it is recommended to have all installed mods on the same physical hard disk on which your Skyrim is installed**. If you store your installed mods on a different drive Skyrim will have to access files from two different drives which will decrease load performance.
 
 ##### SKSE Launch Argument
 
-If you've installed SKSE before Mod Organizer then MO should have picked it up automatically and created an SKSE entry under Launchable Executables (the blue/green gears icon) for you. If you use the Skyrim Steam version you should add the `-forcesteamloader` argument to the SKSE launch entry:
+If you've installed SKSE before Mod Organizer then MO should have picked it up automatically and created an SKSE entry under *Launchable Executables* (the blue/green gears icon) for you. If you use the Skyrim Steam version you should add the `-forcesteamloader` argument to the SKSE launch entry:
 
   1. Click on "Configure the executables..." button (green/blue gears icon).
   2. Select SKSE.
@@ -134,7 +136,7 @@ If you've installed SKSE before Mod Organizer then MO should have picked it up a
 
 #### 3.3 LOOT
 
-LOOT is a tool used to sort the load order of .esp files. It uses a masterlist with information about many published mods to arrange the files into a (hopefully) conflict-free order. It does a fairly good job at ordering your files but depending on the mods you install there might be exceptions where you still have to order manually afterwards. In my experience I found that I always have to order several mods manually and/or tell LOOT that it should place a specific mod after some others so know that you can't blindly rely on it. In addition LOOT is very useful to let you know of mods that need to be cleaned with TESEdit.
+LOOT is a tool used to sort the load order of ESP files. It uses a master list with information about many published mods to arrange the files into a (hopefully) conflict-free order. It does a fairly good job at ordering your files but depending on the mods you install there might be exceptions where you still have to order manually afterwards. In my experience I found that I always have to order several mods manually and/or tell LOOT that it should place a specific mod after some others so know that you can't blindly rely on it. In addition LOOT is very useful to let you know of mods that need to be cleaned with TESEdit.
 
 Download LOOT from https://github.com/loot/loot/releases/tag/0.12.1
 
@@ -174,6 +176,7 @@ Download it from https://www.nexusmods.com/skyrimspecialedition/mods/4143 and in
 #### 4.3 SKSE.ini
 
 Find SKSE.ini by going into Mod Organizer, double-click your SKSE mod (as mentioned in 3.1), Filetree tab, under SKSE/SKSE.ini. If the file isn't there, create it. Make sure the file reflects the following settings:
+
 ```
 [Display]
 iTintTextureResolution=2048
@@ -183,7 +186,7 @@ ClearInvalidRegistrations=1
 EnableDiagnostics=1
 ```
 
-  - `iTintTextureResolution`: Set this to `2048`. If you get pixelated lips on your character, either delete this line or comment it out.
+  - `iTintTextureResolution`: Set this to `2048`. If you get pixelated lips on your character, either delete this line or find the size of your used tint map texture and update the value here.
   - `ClearInvalidRegistrations`: When turned on SKSE tries to clean unused scripts which is good! Set this to `1`.
   - `EnableDiagnostics`: If set to `1` SKSE shows missing ESPs when a savegame is loaded.
   - `DefaultHeapInitialAllocMB` and `ScrapHeapSizeMB` are obsolete since **meh321's Crash fixes mod** (more below) completely replaces the SKSE memory patch. Therefore these two values should be removed from SKSE.ini.
@@ -221,6 +224,7 @@ The Crash fixes mod fixes many of the bugs, see the mod's website and `CrashFixP
 #### General Load Order
 
 It's a good idea to define a categorical mod order in Mod Organizer to prevent chaos from ruling your mod list. However due to the nature of Skyrim mods (assets & ESP files) it's not always possible to follow a strict order since you will have to move textures and ESPs around to suit your mod overriding but you can set up a rough order that follows some mod categories. For example you want texture replacers late in your mod order and mods that only contain SKSE plugins can be anywhere since they don't adhere to a specific load ordering. Here is a categorical order that I'm following for the mod entries in the left pane in Mod Organizer:
+
 ```
 Official Update
 Official DLCs (TESEdit-Cleaned)
@@ -274,6 +278,7 @@ Generated (FNIS, SKSE Configs, etc.)
 
   - **Issue**: Skyrim takes screenshots whenever I press the <key>End</key> key (In particular frustrating if you're a left-hander using the End key as your 'Use' key).
   **Solution**: You most likely have an ENB installed that contains a file named *injector.ini*. It is there where this obnoxious keyboard shortcut hides. You might want to remove all the keyboard assignments defined in this file:
+
 ```
 [injector]
 ;toggle shader keycode

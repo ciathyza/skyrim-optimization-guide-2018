@@ -238,7 +238,7 @@ LOD
 Generated (FNIS, SKSE Configs, etc.)
 ```
 
-Note that you still have to do some exceptions for specific mods in such an order. Several of my mods don't work or look right unless I place them on a higher priority so I order them under *Top Priority*.
+Note that you still have to make some exceptions for specific mods. Several of my mods don't work or look right unless I place them on a higher priority than they would be in their respective category so I order them under *Top Priority*.
 
 ---
 

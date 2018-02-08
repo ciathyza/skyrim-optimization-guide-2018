@@ -1,10 +1,18 @@
+# Skyrim Texture & Normal Map Guide
+
+Written 2018 by ciathyza
 
 ## Requirements
 
-  - Photoshop
-  - NVIDIA Texture Tools for Photoshop.
-  - Shadermap Pro
-  - Ordenador (Skyrim Texture Optimizer)
+  - [Photoshop](https://www.adobe.com/products/photoshop.html)
+  - [NVIDIA Texture Tools for Photoshop](https://developer.nvidia.com/nvidia-texture-tools-adobe-photoshop)
+  - [Shadermap Pro](https://shadermap.com/)
+
+## Optional Tools
+
+  - [PixPlant](https://www.pixplant.com/)
+  - [DDSOpt](https://www.nexusmods.com/skyrim/mods/5755/)
+  - [Ordenador (Skyrim Texture Optimizer)](https://www.nexusmods.com/skyrim/mods/12801)
 
 ## Process
 

@@ -19,7 +19,7 @@
   9. Load 1k image into Shadermap Pro.
   10. Remove the ambient occlusion map.
   11. Select the normal map and adjust the intensity value to your liking. Turn Sharpen on.
-  12. Select the specular map and adjust the specular value. Setting it darker will remove shinyness while setting it brighter will increase shinyness. Setting to it to 0 (RGB 127, 127, 127) will create a neutral specularity.
+  12. Select the specular map and adjust the specular value. Setting it darker will remove shininess while setting it brighter will increase shininess. Setting to it to 0 (RGB 127, 127, 127) will create a neutral specularity.
   13. Save the normal map as TGA with alpha channel.
   14. Save the specular map as TGA.
   15. Open normal map and specular map in Photoshop.
@@ -27,3 +27,13 @@
   17. Save the normal map image in DDS DXT5 format, incl. mip-maps.
   18. Rename the normal map file to reflect the diffuse map file name plus '_n'.
   19. Run the texture(s) through Ordenador to optimize them.
+
+## DDS Format Size Table
+
+| Resolution | DXT1    | DXT1 Alpha | DXT3    | DXT5    | 4.4.4.4 ARGB | 8.8.8. RGB | 8.8.8.8. Uncompressed |
+|:-----------|:--------|:-----------|:--------|:--------|:-------------|:-----------|:----------------------|
+| 512        | 171KB   | 171KB      | 342KB   | 342KB   | 684KB        | 1024KB     | 1368KB                |
+| 1024       | 684KB   | 684KB      | 1368KB  | 1368KB  | 2732KB       | 4096KB     | 5464KB                |
+| 2048       | 2732KB  | 2732KB     | 5464KB  | 5464KB  | 10.67MB      | 16MB       | 21.34MB               |
+| 4096       | 10.67MB | 10.67MB    | 21.34MB | 21.34MB | 42.68MB      | 64MB       | 85.37MB               |
+

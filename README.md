@@ -145,14 +145,27 @@ Download it from [www.nexusmods.com/skyrimspecialedition/mods/4143](https://www.
 #### 4.1 Skyrim.ini
 
 ```
-fSunShadowUpdateTime=0.25
-fSunUpdateThreshold=0.005
+[Display]
+fSunShadowUpdateTime=1
+fSunUpdateThreshold=0.05
 ```
 
   - `fSunShadowUpdateTime`: Determines the time in seconds at which the sun position is updated which in turn causes the shadow to move.
   - `fSunUpdateThreshold`: Determines the time between sun-shadow transitions. A value of 0.05 is equal to 1 second, so a value of 1 equals 20 seconds and a value of 0.005 equals 100 milliseconds. Increasing this also increases the distance the shadows will move during the transition.
 
 #### 4.2 Skyrimprefs.ini
+
+```
+[Display]
+iBlurDeferredShadowMask=16
+iMaxAnisotropy=0
+iMaxDecalsPerFrame=400
+iMaxSkinDecalsPerFrame=100
+iMultiSample=0
+iShadowFilter=4
+iShadowMapResolution=8192
+```
+
 
 #### 4.3 SKSE.ini
 

@@ -63,7 +63,7 @@ skse_loader.exe
 skse_steam_loader.dll
 ```
 
-Install the SKSE `Script` folder incl. contents with Mod Organizer (see below) into a dedicated mod entry. **Do this step after you've installed Mod Organizer (We install SKSE itself before MO so that MO automatically picks up the SKSE loader)!** Simply zip the Scripts folder and then install it with Mod Organizer (Install a new mod from an archive) into a new mod entry named `SKSE` or something similar.
+Install the SKSE `Script` folder incl. contents with Mod Organizer (see below) into a dedicated mod entry. **Do this step after you've installed Mod Organizer (We install SKSE before MO so that MO automatically picks up the SKSE loader)!** Simply zip the Scripts folder and then install it with Mod Organizer (Install a new mod from an archive) into a new mod entry named `SKSE` or something similar.
 
 #### 3.2 Mod Organizer
 
@@ -143,6 +143,14 @@ Download it from [www.nexusmods.com/skyrimspecialedition/mods/4143](https://www.
 ### 4. Ini File Optimization
 
 #### 4.1 Skyrim.ini
+
+```
+fSunShadowUpdateTime=0.25
+fSunUpdateThreshold=0.005
+```
+
+  - `fSunShadowUpdateTime`: Determines the time in seconds at which the sun position is updated which in turn causes the shadow to move.
+  - `fSunUpdateThreshold`: Determines the time between sun-shadow transitions. A value of 0.05 is equal to 1 second, so a value of 1 equals 20 seconds and a value of 0.005 equals 100 milliseconds. Increasing this also increases the distance the shadows will move during the transition.
 
 #### 4.2 Skyrimprefs.ini
 

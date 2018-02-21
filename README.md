@@ -5,19 +5,18 @@ v1.0.0
 _by Ciathyza, 2018/01/26_  
 Origin: [github.com/ciathyza/skyrim-optimization-guide-2018](https://github.com/ciathyza/skyrim-optimization-guide-2018)
 
-{{TOC}}
-
 ### Table of Contents
   1. Introduction
   2. System Preparation & Optimization
   3. Software & Tools
-  4. Ini File Optimization
-  5. Essential Bug fixes & Patches
-  6. Graphics Modding & Optimization
-  7. Modding Tips
-  8. Essential Mods
-  9. Troubleshooting
-  10. Useful Links
+  4. Graphics Driver Settings
+  5. Ini File Optimization
+  6. Essential Bug fixes & Patches
+  7. Graphics Modding & Optimization
+  8. Modding Tips
+  9. Essential Mods
+  10. Troubleshooting
+  11. Useful Links
 
 ---
 
@@ -140,9 +139,41 @@ Download it from [www.nexusmods.com/skyrimspecialedition/mods/4143](https://www.
 
 ---
 
-### 4. Ini File Optimization
+### 4. Graphics Driver Settings
 
-#### 4.1 Skyrim.ini
+These settings are for Nvidia users. As I don't use a AMD card I cannot provide any settings for these. Sorry for that!
+
+Go to your Nvidia graphics card driver settings (right-click on desktop, choose Nvidia Control Panel) and under 3D settings choose the application-specific settings for Skyrim (tesv.exe). The following table tells you about the recommended settings.
+
+| Nvidia Setting                                      | Recommended Value       |
+|:----------------------------------------------------|:------------------------|
+| Ambient Occlusion                                   | Off                     |
+| Anisotropic Filtering                               | 8x                      |
+| Antialiasing - FXAA                                 | Not supported           |
+| Antialiasing - Gamma correction                     | On                      |
+| Antialiasing - Mode                                 | Application-controlled  |
+| Antialiasing - Setting                              | Use global setting      |
+| Antialiasing - Transparency                         | 8x (supersample)        |
+| CUDA - GPUs                                         | Use global setting      |
+| Maximum pre-rendered frames                         | 1                       |
+| Monitor Technology                                  | Fixed Refresh           |
+| Multi-Frame Sampled AA (MFAA)                       | On                      |
+| OpenGL rendering GPU                                | Auto-select             |
+| Power management mode                               | Optimal power           |
+| Preferred refresh rate                              | Application-controlled  |
+| Shader Cache                                        | Use global setting (On) |
+| Texture filtering - Anisotropic sample optimization | Off                     |
+| Texture filtering - Negative LOD bias               | Clamp                   |
+| Texture filtering - Quality                         | High quality            |
+| Texture filtering - Trilinear optimization          | On                      |
+| Threaded optimization                               | On                      |
+| Triple buffering                                    | On                      |
+| Vertical sync                                       | On                      |
+| Virtual Reality pre-rendered frames                 | 1                       |
+
+### 5. Ini File Optimization
+
+#### 5.1 Skyrim.ini
 
 ```
 [Display]
@@ -153,7 +184,7 @@ fSunUpdateThreshold=0.05
   - `fSunShadowUpdateTime`: Determines the time in seconds at which the sun position is updated which in turn causes the shadow to move.
   - `fSunUpdateThreshold`: Determines the time between sun-shadow transitions. A value of 0.05 is equal to 1 second, so a value of 1 equals 20 seconds and a value of 0.005 equals 100 milliseconds. Increasing this also increases the distance the shadows will move during the transition.
 
-#### 4.2 Skyrimprefs.ini
+#### 5.2 Skyrimprefs.ini
 
 ```
 [Display]
@@ -167,7 +198,7 @@ iShadowMapResolution=8192
 ```
 
 
-#### 4.3 SKSE.ini
+#### 5.3 SKSE.ini
 
 Find SKSE.ini by going into Mod Organizer, double-click your SKSE mod (as mentioned in 3.1), Filetree tab, under *SKSE/SKSE.ini*. If the file isn't there, create it. Make sure the file reflects the following settings:
 
@@ -187,9 +218,9 @@ EnableDiagnostics=1
 
 ---
 
-### 5. Essential Bug Fixes & Patches
+### 6. Essential Bug Fixes & Patches
 
-#### 5.1 Crash Fixes Mod & SKSE Plugin Preloader
+#### 6.1 Crash Fixes Mod & SKSE Plugin Preloader
 
 If you were cursing at your heavily modded Skyrim crashing approx. every 30 minutes there is finally a cure for you! These two amazing tweaks will likely fix most of your Skyrim LE crashes. The Crash Fixes mod eliminates 99.9% of crashes for me and it will most likely for you!
 
@@ -207,13 +238,13 @@ The Crash fixes mod fixes many of the bugs, see the mod's website and `CrashFixP
 
 ---
 
-### 6. Graphics Modding & Optimization
+### 7. Graphics Modding & Optimization
 
 #### ENB
 
 ---
 
-### 7. Modding Tips
+### 8. Modding Tips
 
 #### General Load Order
 
@@ -263,11 +294,11 @@ Note that you still have to make some exceptions for specific mods. Several of m
 
 ---
 
-### 8. Essential Mods
+### 9. Essential Mods
 
 ---
 
-### 9. Troubleshooting
+### 10. Troubleshooting
 
   - **Issue**: The lips on my character's skin are pixelated.
   **Solution**: Find the texture used for the lips tint mask and check its texture size. Edit *SKSE.ini* and set `iTintTextureResolution` to the size (e.g. 1024, 2048, etc).
@@ -289,4 +320,4 @@ key_reload =
 
 ---
 
-### 10. Useful Links
+### 11. Useful Links

@@ -155,13 +155,13 @@ Go to your Nvidia graphics card driver settings (right-click on desktop, choose 
 | Antialiasing - Setting                              | Use global setting      |
 | Antialiasing - Transparency                         | 8x (supersample)        |
 | CUDA - GPUs                                         | Use global setting      |
-| Maximum pre-rendered frames                         | 1                       |
+| Maximum pre-rendered frames                         | Application-controlled  |
 | Monitor Technology                                  | Fixed Refresh           |
 | Multi-Frame Sampled AA (MFAA)                       | On                      |
 | OpenGL rendering GPU                                | Auto-select             |
 | Power management mode                               | Optimal power           |
 | Preferred refresh rate                              | Application-controlled  |
-| Shader Cache                                        | Use global setting (On) |
+| Shader Cache                                        | On                      |
 | Texture filtering - Anisotropic sample optimization | Off                     |
 | Texture filtering - Negative LOD bias               | Clamp                   |
 | Texture filtering - Quality                         | High quality            |
@@ -169,7 +169,33 @@ Go to your Nvidia graphics card driver settings (right-click on desktop, choose 
 | Threaded optimization                               | On                      |
 | Triple buffering                                    | On                      |
 | Vertical sync                                       | On                      |
-| Virtual Reality pre-rendered frames                 | 1                       |
+| Virtual Reality pre-rendered frames                 | Application-controlled  |
+
+#### 4.1 For G-Sync Users
+
+If you have a G-Sync capable monitor it's recommend to use G-Sync instead of vertical sync because it will solve any performance limitations introduced by VSync. To use G-Sync with Skyrim you need to make the following tweaks:
+
+In Skyrim.ini, disable vertical sync:
+```
+iPresentInterval=0
+```
+
+In enblocal.ini, disable vertical sync and FPS limiter:
+```
+EnableVSync=false
+EnableFPSLimit=false
+```
+
+In Nvidia graphics card driver settings change these settings accordingly:
+
+| Nvidia Setting                                      | Recommended Value       |
+|:----------------------------------------------------|:------------------------|
+| Monitor Technology                                  | GSync                   |
+| Vertical sync                                       | Off                     |
+
+After this you should still limit the framerate to 60 FPS (or rather 58) but since ENB's FPS limiter has proven not to be very reliable for me I recommd to use the FPS limiter from [Nvidia Inspector](https://www.guru3d.com/files-details/nvidia-inspector-download.html) instead. So download and run Nvidia Inspector, go into the Driver Profile Settings, select the profile for `Elder Scrolls V: Skyrim` and look for a setting named `Frame Rate Limiter`. set it to a value around 58. Setting it to 58 instead of 60 will recude input lag (at least if the game is running at full FPS).
+
+After these tweaks Skyrim should run properly with GSync and in-game physics should not go bonkers either. Your monitor will now refresh the image according to what FPS the game is currently running at, thus eliminating tearing and any performance drawbacks introduced by VSync.
 
 ### 5. Ini File Optimization
 

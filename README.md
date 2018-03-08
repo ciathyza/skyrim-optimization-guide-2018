@@ -280,6 +280,12 @@ The Crash fixes mod fixes many of the bugs, see the mod's website and `CrashFixP
 
 If you want to eliminate mod conflicts and game issues you must be pragmatic when installing mods. The approach described here recommends to install mods in a certain order, one by one, testing them early, and fix issues early. This means that you download and install the most essential mods first and after that start to install other mods following a certain order and test them in-game before installing new mods. As you keep (mostly) relying on LOOT to sort your mod order you will see that it's easier to see changes in the mod order than after installing multiple mods and have LOOT order it all over the place because some mods require manual ordering. Luckily you are using Mod Organizer so you can change the mod order non-destructively at any time but you should still proceed carefully because with many mods installed all at once and not checking for issues in between it will be very difficult to figure out which mod causes problems.
 
+**General tips to follow when installing mods:**
+
+  - Don't have MO unpack BSAs when installing mods!
+  - If a mod contains doc files (readmes, screenshots, etc.) create a folder named _Docs_ and move these files into it. Then set the Docs folder as hidden (it will add the extension _.mohidden_ to it). Do the same with _Source_ folders. This will have MO ignore all these mod-unrelated files.
+  - 
+
 #### General Load Order
 
 It's a good idea to define a categorical mod order in Mod Organizer to prevent chaos from ruling your mod list. However due to the nature of Skyrim mods (assets & ESP files) it's not always possible to follow a strict order since you will have to move textures and ESPs around to suit your mod overrides but you can set up a 'rough' order that follows some mod categories. For example you want texture replacers late in your mod order and mods that only contain SKSE plugins can be anywhere since they don't adhere to a specific load ordering. Here is a categorical order that I'm following for the mod entries in the left pane in Mod Organizer:

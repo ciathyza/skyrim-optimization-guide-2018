@@ -276,8 +276,9 @@ The Crash fixes mod fixes many of the bugs, see the mod's website and `CrashFixP
 
 ### 8. Modding Tips
 
-#### Mod Installation Best Practice
+#### Mod Installation Best Practices
 
+If you want to eliminate mod conflicts and game issues you must be pragmatic when installing mods. The approach described here recommends to install mods in a certain order, one by one, testing them early, and fix issues early. This means that you download and install the most essential mods first and after that start to install other mods following a certain order and test them in-game before installing new mods. As you keep (mostly) relying on LOOT to sort your mod order you will see that it's easier to see changes in the mod order than after installing multiple mods and have LOOT order it all over the place because some mods require manual ordering. Luckily you are using Mod Organizer so you can change the mod order non-destructively at any time but you should still proceed carefully because with many mods installed all at once and not checking for issues in between it will be very difficult to figure out which mod causes problems.
 
 #### General Load Order
 

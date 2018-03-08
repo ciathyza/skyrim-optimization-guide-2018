@@ -102,7 +102,7 @@ If you've installed SKSE before Mod Organizer then MO should have picked it up a
 
 ##### Mod Organizer Tips
 
-  - **Unpack BSAs**: In Mod Organizer's plugin settings you can enable the BSA Unpacker. I recommend this and have Mod Organizer unpack any BSAs when a mod is being installed. This allows you to see which files of the mod are conflicting (override or being overridden) with other mods and you can more easily decide which mod should take preference, ignore certain files, etc.
+  - **Unpacking BSAs**: In Mod Organizer's plugin settings you can enable the BSA Unpacker. This allows you to see which files of the mod are conflicting (override or being overridden) with other mods and you can more easily decide which mod should take preference, ignore certain files, etc. HOWEVER: loading loose files instead of BSAs has shown to be not only slower but also makes loading unstable in some cases. Therefore I recommend to leave BSAs packed if a mod comes with a BSA. Only mods that override existing asset files use unpacked files, everything else can safely stay inside a BSA archive.
   - **Virtual File Access**: Configure your favorite file manager (e.g. [Directory Opus](https://www.gpsoft.com.au/)) to launch via Mod Organizer. This gives you access to the file structure of the *Data* folder as Skyrim will see it when launched. It enables you to browse the asset files that are ultimately used by the game. Then You could for example use a [DDS viewer](https://resource.dopus.com/t/simple-dds-viewer-plugin/2515) to check the textures, etc. Note that this won't work with the Windows Explorer as that Windows process is already running in memory by default so Mod Organizer can't hook its virtualized file system to it. You need an app that is launched and that quits later on.
   - **Mod Files Location**: As hinted before, Mod Organizer stores downloaded/installed mods separately from the Skyrim installation directory. The default location for all your Mod Organizer Skyrim-related files is at `C:\Users\yourusername\AppData\Local\ModOrganizer\Skyrim`. Mod Organizer allows you to store these files in a different location **but it is recommended to have all installed mods on the same physical hard disk on which your Skyrim is installed**. If you store your installed mods on a different drive Skyrim will have to access files from two different drives which will decrease load performance.
 
@@ -137,6 +137,10 @@ A tool that can help with savegame cleaning in case you want to remove or update
 This tool can be used to backup and restore all ENB-related files from the Skyrim folder and create presets to easily switch ENBs. A real time saver!
 Download it from [www.nexusmods.com/skyrimspecialedition/mods/4143](https://www.nexusmods.com/skyrimspecialedition/mods/4143) and install it. No need to run it via Mod Organizer since MO doesn't manage files that are located directly in the Skyrim root folder.
 
+#### 3.9 Bethini
+
+A tool that creates clean ini files that are up-to-date with the latest knowledge about Skyrim's ini settings. It's recommended to create fresh ini files with this tool and then adapt them to your preference (disable the game controller for example). Download at [www.nexusmods.com/skyrim/mods/69787](https://www.nexusmods.com/skyrim/mods/69787).
+
 ---
 
 ### 4. Graphics Driver Settings
@@ -167,13 +171,13 @@ Go to your Nvidia graphics card driver settings (right-click on desktop, choose 
 | Texture filtering - Quality                         | High quality            |
 | Texture filtering - Trilinear optimization          | On                      |
 | Threaded optimization                               | On                      |
-| Triple buffering                                    | On                      |
+| Triple buffering                                    | Off                     |
 | Vertical sync                                       | On                      |
 | Virtual Reality pre-rendered frames                 | Application-controlled  |
 
 #### 4.1 For G-Sync Users
 
-If you have a G-Sync capable monitor it's recommend to use G-Sync instead of vertical sync because it will solve any performance limitations introduced by VSync. To use G-Sync with Skyrim you need to make the following tweaks:
+If you have a G-Sync capable monitor it's recommend to use G-Sync and vertical sync together because it will solve any performance limitations introduced by VSync. It is recommended to use both. Read [this guide](https://www.blurbusters.com/gsync/gsync101-input-lag-tests-and-settings/14/) to see why. To use G-Sync with Skyrim you need to make the following tweaks:
 
 In Skyrim.ini, disable vertical sync:
 ```
@@ -191,11 +195,11 @@ In Nvidia graphics card driver settings change these settings accordingly:
 | Nvidia Setting                                      | Recommended Value       |
 |:----------------------------------------------------|:------------------------|
 | Monitor Technology                                  | GSync                   |
-| Vertical sync                                       | Off                     |
+| Vertical sync                                       | On                      |
 
-After this you should still limit the framerate to 60 FPS (or rather 58) but since ENB's FPS limiter has proven not to be very reliable for me I recommd to use the FPS limiter from [Nvidia Inspector](https://www.guru3d.com/files-details/nvidia-inspector-download.html) instead. So download and run Nvidia Inspector, go into the Driver Profile Settings, select the profile for `Elder Scrolls V: Skyrim` and look for a setting named `Frame Rate Limiter`. set it to a value around 58. Setting it to 58 instead of 60 will recude input lag (at least if the game is running at full FPS).
+After this you should still limit the framerate to 57 FPS but since ENB's FPS limiter has proven not to be very reliable for me I recommend to use the FPS limiter from [Nvidia Inspector](https://www.guru3d.com/files-details/nvidia-inspector-download.html) instead. So download and run Nvidia Inspector, go into the Driver Profile Settings, select the profile for `Elder Scrolls V: Skyrim` and look for a setting named `Frame Rate Limiter`. Set it to a value around 57. Setting it to 57 instead of 60 will reduce input lag (at least if the game is running at full FPS).
 
-After these tweaks Skyrim should run properly with GSync and in-game physics should not go bonkers either. Your monitor will now refresh the image according to what FPS the game is currently running at, thus eliminating tearing and any performance drawbacks introduced by VSync.
+After these tweaks Skyrim should run properly with GSync and in-game physics should not go bonkers either. Your monitor will now refresh the image according to what FPS the game is currently running at, thus eliminating tearing and any performance drawbacks introduced by VSync solely.
 
 ### 5. Ini File Optimization
 
@@ -271,6 +275,9 @@ The Crash fixes mod fixes many of the bugs, see the mod's website and `CrashFixP
 ---
 
 ### 8. Modding Tips
+
+#### Mod Installation Best Practice
+
 
 #### General Load Order
 

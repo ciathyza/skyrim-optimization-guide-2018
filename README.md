@@ -9,14 +9,13 @@ Origin: [github.com/ciathyza/skyrim-optimization-guide-2018](https://github.com/
   1. Introduction
   2. System Preparation & Optimization
   3. Software & Tools
-  4. Graphics Driver Settings
-  5. Ini File Optimization
-  6. Essential Bug fixes & Patches
-  7. Graphics Modding & Optimization
-  8. Modding Tips
-  9. Essential Mods
-  10. Troubleshooting
-  11. Useful Links
+  4. Ini File Optimization
+  5. Essential Bug fixes & Patches
+  6. Graphics Modding & Optimization
+  7. Modding Tips
+  8. Essential Mods
+  9. Troubleshooting
+  10. Useful Links
 
 ---
 
@@ -143,7 +142,76 @@ A tool that creates clean ini files that are up-to-date with the latest knowledg
 
 ---
 
-### 4. Graphics Driver Settings
+### 4. Ini File Optimization
+
+#### 4.1 Skyrim.ini
+
+```
+[Display]
+fSunShadowUpdateTime=1
+fSunUpdateThreshold=0.05
+```
+
+  - `fSunShadowUpdateTime`: Determines the time in seconds at which the sun position is updated which in turn causes the shadow to move.
+  - `fSunUpdateThreshold`: Determines the time between sun-shadow transitions. A value of 0.05 is equal to 1 second, so a value of 1 equals 20 seconds and a value of 0.005 equals 100 milliseconds. Increasing this also increases the distance the shadows will move during the transition.
+
+#### 4.2 Skyrimprefs.ini
+
+```
+[Display]
+iBlurDeferredShadowMask=16
+iMaxAnisotropy=0
+iMaxDecalsPerFrame=400
+iMaxSkinDecalsPerFrame=100
+iMultiSample=0
+iShadowFilter=4
+iShadowMapResolution=8192
+```
+
+
+#### 4.3 SKSE.ini
+
+Find SKSE.ini by going into Mod Organizer, double-click your SKSE mod (as mentioned in 3.1), Filetree tab, under *SKSE/SKSE.ini*. If the file isn't there, create it. Make sure the file reflects the following settings:
+
+```
+[Display]
+iTintTextureResolution=2048
+
+[General]
+ClearInvalidRegistrations=1
+EnableDiagnostics=1
+```
+
+  - `iTintTextureResolution`: Set this to `2048`. If you get pixelated lips on your character, either delete this line or find the size of your used tint map texture and update the value here.
+  - `ClearInvalidRegistrations`: When turned on SKSE tries to clean unused scripts which is good! Set this to `1`.
+  - `EnableDiagnostics`: If set to `1` SKSE shows missing ESPs when a savegame is loaded.
+  - `DefaultHeapInitialAllocMB` and `ScrapHeapSizeMB` are obsolete since **meh321's Crash fixes mod** (more below) completely replaces the SKSE memory patch. Therefore these two values should be removed from *SKSE.ini*.
+
+---
+
+### 5. Essential Bug Fixes & Patches
+
+#### 5.1 Crash Fixes Mod & SKSE Plugin Preloader
+
+If you were cursing at your heavily modded Skyrim crashing approx. every 30 minutes there is finally a cure for you! These two amazing tweaks will likely fix most of your Skyrim LE crashes. The Crash Fixes mod eliminates 99.9% of crashes for me and it will most likely for you!
+
+  - [Crash Fixes by meh321](https://www.nexusmods.com/skyrim/mods/72725/?)
+  - [SKSE Plugin Preloader](https://www.nexusmods.com/skyrim/mods/75795/?)
+
+##### Installation
+  1. Extract **SKSE Plugin Preloader**, copy `d3dx9_42.dll` into your Skyrim folder (where `TESV.exe` is located).
+  2. Install **Crash fixes by meh321** with Mod Organizer.
+  3. In Mod Organizer check if you have a file named `CrashFixPlugin_preload.txt` in `SKSE\Plugins` (besides `CrashFixPlugin.ini` and `CrashFixPlugin.dll`), if not, create it (can be an empty file).
+  4. Open `CrashFixPlugin.ini`, and set `UseOSAllocators` to `1`. Save the file.
+  5. Done!
+
+The Crash fixes mod fixes many of the bugs, see the mod's website and `CrashFixPlugin.ini` for details. The SKSE Plugin Preloader makes sure that mods are loaded before game initialization for which it finds the `_preload.txt` file.
+
+---
+
+### 6. Graphics Modding & Optimization
+
+#### 6.1 Graphics Driver Settings
 
 These settings are for Nvidia users. As I don't use a AMD card I cannot provide any settings for these. Sorry for that!
 
@@ -175,7 +243,7 @@ Go to your Nvidia graphics card driver settings (right-click on desktop, choose 
 | Vertical sync                                       | On                      |
 | Virtual Reality pre-rendered frames                 | Application-controlled  |
 
-#### 4.1 For G-Sync Users
+##### For G-Sync Users
 
 If you have a G-Sync capable monitor it's recommend to use G-Sync and vertical sync together because it will solve any performance limitations introduced by VSync. It is recommended to use both. Read [this guide](https://www.blurbusters.com/gsync/gsync101-input-lag-tests-and-settings/14/) to see why. To use G-Sync with Skyrim you need to make the following tweaks:
 
@@ -201,92 +269,32 @@ After this you should still limit the framerate to 57 FPS but since ENB's FPS li
 
 After these tweaks Skyrim should run properly with GSync and in-game physics should not go bonkers either. Your monitor will now refresh the image according to what FPS the game is currently running at, thus eliminating tearing and any performance drawbacks introduced by VSync solely.
 
-### 5. Ini File Optimization
+#### 6.2 Monitor Calibration
 
-#### 5.1 Skyrim.ini
-
-```
-[Display]
-fSunShadowUpdateTime=1
-fSunUpdateThreshold=0.05
-```
-
-  - `fSunShadowUpdateTime`: Determines the time in seconds at which the sun position is updated which in turn causes the shadow to move.
-  - `fSunUpdateThreshold`: Determines the time between sun-shadow transitions. A value of 0.05 is equal to 1 second, so a value of 1 equals 20 seconds and a value of 0.005 equals 100 milliseconds. Increasing this also increases the distance the shadows will move during the transition.
-
-#### 5.2 Skyrimprefs.ini
-
-```
-[Display]
-iBlurDeferredShadowMask=16
-iMaxAnisotropy=0
-iMaxDecalsPerFrame=400
-iMaxSkinDecalsPerFrame=100
-iMultiSample=0
-iShadowFilter=4
-iShadowMapResolution=8192
-```
-
-
-#### 5.3 SKSE.ini
-
-Find SKSE.ini by going into Mod Organizer, double-click your SKSE mod (as mentioned in 3.1), Filetree tab, under *SKSE/SKSE.ini*. If the file isn't there, create it. Make sure the file reflects the following settings:
-
-```
-[Display]
-iTintTextureResolution=2048
-
-[General]
-ClearInvalidRegistrations=1
-EnableDiagnostics=1
-```
-
-  - `iTintTextureResolution`: Set this to `2048`. If you get pixelated lips on your character, either delete this line or find the size of your used tint map texture and update the value here.
-  - `ClearInvalidRegistrations`: When turned on SKSE tries to clean unused scripts which is good! Set this to `1`.
-  - `EnableDiagnostics`: If set to `1` SKSE shows missing ESPs when a savegame is loaded.
-  - `DefaultHeapInitialAllocMB` and `ScrapHeapSizeMB` are obsolete since **meh321's Crash fixes mod** (more below) completely replaces the SKSE memory patch. Therefore these two values should be removed from *SKSE.ini*.
+#### 6.3 ENB
 
 ---
 
-### 6. Essential Bug Fixes & Patches
+### 7. Modding Tips
 
-#### 6.1 Crash Fixes Mod & SKSE Plugin Preloader
-
-If you were cursing at your heavily modded Skyrim crashing approx. every 30 minutes there is finally a cure for you! These two amazing tweaks will likely fix most of your Skyrim LE crashes. The Crash Fixes mod eliminates 99.9% of crashes for me and it will most likely for you!
-
-  - [Crash Fixes by meh321](https://www.nexusmods.com/skyrim/mods/72725/?)
-  - [SKSE Plugin Preloader](https://www.nexusmods.com/skyrim/mods/75795/?)
-
-##### Installation
-  1. Extract **SKSE Plugin Preloader**, copy `d3dx9_42.dll` into your Skyrim folder (where `TESV.exe` is located).
-  2. Install **Crash fixes by meh321** with Mod Organizer.
-  3. In Mod Organizer check if you have a file named `CrashFixPlugin_preload.txt` in `SKSE\Plugins` (besides `CrashFixPlugin.ini` and `CrashFixPlugin.dll`), if not, create it (can be an empty file).
-  4. Open `CrashFixPlugin.ini`, and set `UseOSAllocators` to `1`. Save the file.
-  5. Done!
-
-The Crash fixes mod fixes many of the bugs, see the mod's website and `CrashFixPlugin.ini` for details. The SKSE Plugin Preloader makes sure that mods are loaded before game initialization for which it finds the `_preload.txt` file.
-
----
-
-### 7. Graphics Modding & Optimization
-
-#### ENB
-
----
-
-### 8. Modding Tips
-
-#### Mod Installation Best Practices
+#### 7.1 Mod Installation Best Practices
 
 If you want to eliminate mod conflicts and game issues you must be pragmatic when installing mods. The approach described here recommends to install mods in a certain order, one by one, testing them early, and fix issues early. This means that you download and install the most essential mods first and after that start to install other mods following a certain order and test them in-game before installing new mods. As you keep (mostly) relying on LOOT to sort your mod order you will see that it's easier to see changes in the mod order than after installing multiple mods and have LOOT order it all over the place because some mods require manual ordering. Luckily you are using Mod Organizer so you can change the mod order non-destructively at any time but you should still proceed carefully because with many mods installed all at once and not checking for issues in between it will be very difficult to figure out which mod causes problems.
 
-**General tips to follow when installing mods:**
+##### Mod Installation Tips
 
-  - Don't have MO unpack BSAs when installing mods!
-  - If a mod contains doc files (readmes, screenshots, etc.) create a folder named _Docs_ and move these files into it. Then set the Docs folder as hidden (it will add the extension _.mohidden_ to it). Do the same with _Source_ folders. This will have MO ignore all these mod-unrelated files.
-  - 
+  - Don't unpack BSAs when installing mods! It's generally better for performance and stability to load assets from BSAs.
+  - If a mod contains doc files (readmes, screenshots, etc.) create a folder named _Docs_ and move these files into it. Then set the Docs folder as hidden (MO will add the extension _.mohidden_ to it). Do the same with _Source_ folders. This will have MO ignore all these mod-unrelated files.
+  - You can install additional ESP files for a mod and set them as optional in MO if they are not required or if you need them later as a dependency for another mod.
 
-#### General Load Order
+##### Installation Order
+
+  1. Modder Resources
+  2. Bugfixes & Patches
+  3. 
+
+
+#### 7.2 General Load Order
 
 It's a good idea to define a categorical mod order in Mod Organizer to prevent chaos from ruling your mod list. However due to the nature of Skyrim mods (assets & ESP files) it's not always possible to follow a strict order since you will have to move textures and ESPs around to suit your mod overrides but you can set up a 'rough' order that follows some mod categories. For example you want texture replacers late in your mod order and mods that only contain SKSE plugins can be anywhere since they don't adhere to a specific load ordering. Here is a categorical order that I'm following for the mod entries in the left pane in Mod Organizer:
 
@@ -334,11 +342,11 @@ Note that you still have to make some exceptions for specific mods. Several of m
 
 ---
 
-### 9. Essential Mods
+### 8. Essential Mods
 
 ---
 
-### 10. Troubleshooting
+### 9. Troubleshooting
 
   - **Issue**: The lips on my character's skin are pixelated.
   **Solution**: Find the texture used for the lips tint mask and check its texture size. Edit *SKSE.ini* and set `iTintTextureResolution` to the size (e.g. 1024, 2048, etc).
@@ -360,4 +368,4 @@ key_reload =
 
 ---
 
-### 11. Useful Links
+### 10. Useful Links

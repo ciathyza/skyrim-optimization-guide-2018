@@ -1,5 +1,5 @@
 
-# Skyrim Optimization Guide 2018
+# Skyrim Modding & Optimization Guide 2018
 
 v1.0.0  
 _by Ciathyza, 2018/01/26_  
@@ -21,9 +21,11 @@ Origin: [github.com/ciathyza/skyrim-optimization-guide-2018](https://github.com/
 
 ### 1. Introduction
 
-This document is designed to provide a complete and comprehensive guide for modding and optimizing Skyrim LE (Legendary Edition) that goes into great detail of tweaking the game to provide a stable and visually high-end gameplay which still runs at a fluid framerate.
+This document is designed to provide a complete and comprehensive guide for modding and optimizing Skyrim LE (Legendary Edition) by going into great detail of tweaking the game to provide a visually high-end and rich dynamic gameplay while still running stable and at a fluid framerate.
 
-This guide assumes a fairly good grasp of handling and understanding Windows-related file operations.
+The aim of this guide is to provide a reliable walkthrough to create a base mod setup that consists of an ENB, tweaked for gameplay but visually pleasing, texture and mesh replacements, UI tweaks, weather mods, animations, and various gameplay-enhancing mods. This base setup can then be used to build on and add secondary mods, such as companions, houses, quests, etc.
+
+This guide assumes a fairly good grasp of handling and understanding Windows-related file operations ans being familiar with Mod Organizer.
 
 #### Why Skyrim LE?
 
@@ -273,17 +275,40 @@ After these tweaks Skyrim should run properly with GSync and in-game physics sho
 
 #### 6.3 ENB
 
+The goal of this section is to install Rudy ENB and tweak it for optimal quality and performance with your system. Additionally we will replace the ENB's DoF (Depth of Field) with that of RealVision ENB. The reason for this is that while Rudy ENB's DoF looks great it's not well suited for gameplay. The DoF uses a center point to determine whether to apply DoF or not and it generally is only good for screen archery but not for constant camera movement. RealVision's DoF on the other hand is well suited for gameplay.
+
+Rudy ENB is a good choice because it it's very tweakable and delivers an excellent image with beautiful colors and sharpness of textures. It is also relatively performant and modern and has support for various weather and lighting mods.
+
+#### 6.4 Texture & Mesh Replacers
+
+#### 6.5 LODs
+
+LODs (Level Of Detail) are textures that are smaller and more resource-friendly than their full size counterparts and which are rendered by the game engine instead of hires textures when a textured object is far away from the player and texture detail isn't important because the object is in the distance. Skyrim uses LODs for all large objects like rocks, trees, ground, houses, etc. to reduce the burden on the GPU. LODs can be generated with different levels of resolution and quality and this section walks you through generating the best-posssible LODs that wont eat up too much of your available VRAM. We will use three different tools to accomplish this: TES5LODGen, TexGen, and DynDOLOD and we set up these tools in Mod Organizer so that re-generating LODs will take the least amount of efforts because you will need to re-generate LODs from time to time after you installed new texture packs or mods like houses or city improvements, etc.
+
+First get the tools and install them in a location where you keep all your modding tools.
+
+  - [TES5LODGen](https://www.nexusmods.com/skyrim/mods/62698)
+  - [DynDOLOD](https://www.nexusmods.com/skyrim/mods/59721) (TextGen is included. Also download the **DynDOLOD Resources** package over Mod Organizer!)
+
+After that you want to create three empty mods in Mod Organizer (right-click on left list and chose 'Create Empty Mod'). Respectively name them:
+
+  - TES5LODGen Generated LODs
+  - TexGen Generated Files
+  - DynDOLOD Generated LODs
+
+Next you link the three tools to Mod Organizer so that you can launch them over MO and so they place generated files right into the empty mods you've just created.
+
 ---
 
 ### 7. Modding Tips
 
 #### 7.1 Mod Installation Best Practices
 
-If you want to eliminate mod conflicts and game issues you must be pragmatic when installing mods. The approach described here recommends to install mods in a certain order, one by one, testing them early, and fix issues early. This means that you download and install the most essential mods first and after that start to install other mods following a certain order and test them in-game before installing new mods. As you keep (mostly) relying on LOOT to sort your mod order you will see that it's easier to see changes in the mod order than after installing multiple mods and have LOOT order it all over the place because some mods require manual ordering. Luckily you are using Mod Organizer so you can change the mod order non-destructively at any time but you should still proceed carefully because with many mods installed all at once and not checking for issues in between it will be very difficult to figure out which mod causes problems.
+If you want to eliminate mod conflicts and game issues you must be pragmatic when installing mods. The approach described here recommends to install mods in a certain order, one by one, testing them early, and fix issues early. This means that you download and install the most essential mods first and after that start to install other mods following a certain order and test them in-game before installing new mods. As you keep (mostly) relying on LOOT to sort your mod order you will see that it's easier to see changes in the mod order with few new mods rather than after installing multiple mods and have LOOT order it all over the place, screwing up mods that do require manual ordering. Luckily you are using Mod Organizer so you can change the mod order non-destructively at any time but you should still proceed with care because with many mods installed all at once and not checking for issues in between it will be very difficult to figure out which mod causes problems later.
 
-##### Mod Installation Tips
+Here are some general rules that should be followed for a clean and smooth running mod setup:
 
-  - Don't unpack BSAs when installing mods! It's generally better for performance and stability to load assets from BSAs.
+  - Don't unpack BSAs when installing mods! It's generally better for performance and stability to load assets from BSAs. Only unpack if you absolutely want files from BSAs to override loose files!
   - If a mod contains doc files (readmes, screenshots, etc.) create a folder named _Docs_ and move these files into it. Then set the Docs folder as hidden (MO will add the extension _.mohidden_ to it). Do the same with _Source_ folders. This will have MO ignore all these mod-unrelated files.
   - You can install additional ESP files for a mod and set them as optional in MO if they are not required or if you need them later as a dependency for another mod.
 

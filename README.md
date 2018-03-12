@@ -277,7 +277,14 @@ After these tweaks Skyrim should run properly with GSync and in-game physics sho
 
 The goal of this section is to install Rudy ENB and tweak it for optimal quality and performance on your system. Additionally we will replace the ENB's DoF (Depth of Field) with that of RealVision ENB. The reason for this is that while Rudy ENB's DoF looks great it's not well suited for gameplay. The DoF uses a center point to determine whether to apply DoF or not and it generally is only good for screen archery but not for constant camera movement. RealVision's DoF on the other works very well even with a lot of camera movement.
 
-Rudy ENB is a good allround ENB that's very tweakable and delivers an excellent image with beautiful colors and sharpness of textures. It's also relatively performant and modern and has support for various weather and lighting mods.
+Rudy ENB is a good allround ENB that's very tweakable and delivers an excellent image with beautiful colors and sharpness of textures. It's also relatively performant and modern and has support for various weather and lighting mods. We will set up Rudy ENB for use with **Climates of Tamriel**!
+
+You need two files to get started:
+  - [ENBoost v0.319](http://enbdev.com/download_mod_tesskyrim.html)
+  - [Rudy ENB](https://www.nexusmods.com/skyrim/mods/41482) (download the **Rudy ENB for CoT** version)
+
+Also get the VRAM Size test tool from enbdev:
+  - [VRAM Size Test](http://enbdev.com/download_vramsizetest.htm)
 
 #### 6.4 Texture & Mesh Replacers
 

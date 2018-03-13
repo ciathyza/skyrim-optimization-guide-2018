@@ -27,6 +27,8 @@ The aim of this guide is to provide a reliable walkthrough to create a base mod 
 
 This guide assumes a fairly good grasp of handling and understanding Windows-related file operations and being familiar with Mod Organizer.
 
+Furthermore, while many other guides direct you to run Skyrim in borderless windowed mode, I recommend to run it in dedicated fullscreen mode and this guide respects that. There are pros and cons to both modes: borderless windowed is better if you want to be able to switch between game and desktop but it never delivers the deep, contrasty colors of fullscreen mode. On the other hand, Skyrim is touchy with alt-tabbing to desktop in fullscreen mode. I personally prefer to have deep colors rather than being able to switch to desktop mid-game but you preference may vary.
+
 #### Why Skyrim LE?
 
 With Skyrim Special Edition having been released in mid 2017 you might wonder why anyone still uses Skyrim Legendary Edition! The answer is simply that the state of modding for SE is still nowhere near that of LE. SKSE64, while being usable, is still in alpha state and there are many great mods that aren't available for Skyrim SE. Not only that but ENBs tend to not look as good on SE either, in particular the DoF effect (that might be my personal experience but I've heard other players say the same). There isn't any HDT physics for SE yet either and you would miss out on many great mods that tweak the game in favorable ways.

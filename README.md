@@ -1,19 +1,19 @@
 
 # Skyrim Modding & Optimization Guide 2018
 
-v1.0.0  
+v1.0.0 WIP  
 _by Ciathyza, 2018/01/26_  
 Origin: [github.com/ciathyza/skyrim-optimization-guide-2018](https://github.com/ciathyza/skyrim-optimization-guide-2018)
 
 ### Table of Contents
   1. Introduction
   2. System Preparation & Optimization
-  3. Software & Tools
-  4. Ini File Optimization
-  5. Essential Bug fixes & Patches
-  6. Graphics Modding & Optimization
-  7. Modding Tips
-  8. Essential Mods
+  3. Mod Organizer
+  4. Additional Tools
+  5. Ini Files
+  6. Graphics Optimization
+  7. Mod Installation
+  8. Mods
   9. Troubleshooting
   10. Useful Links
 
@@ -21,13 +21,19 @@ Origin: [github.com/ciathyza/skyrim-optimization-guide-2018](https://github.com/
 
 ### 1. Introduction
 
-This document is designed to provide a complete and comprehensive guide for modding and optimizing Skyrim LE (Legendary Edition) by going into great detail of tweaking the game to provide a visually high-end and rich dynamic gameplay while still running stable and at a fluid framerate.
+This document is designed to provide a complete and comprehensive guide for modding and optimizing Skyrim LE (Legendary Edition) by going into great detail of tweaking the game to provide a visually high-end and rich, dynamic gameplay while still running stable and at a fluid framerate.
 
-The aim of this guide is to provide a reliable walkthrough to create a base mod setup that consists of an ENB, tweaked for gameplay but visually pleasing, texture and mesh replacements, UI tweaks, weather mods, animations, and various gameplay-enhancing mods. This base setup can then be used to build on and add secondary mods, such as companions, houses, quests, etc.
+The aim of this guide is to provide a reliable walkthrough to create a base mod setup from the ground up that consists of an ENB, tweaked for gameplay but visually pleasing, texture and mesh replacements, UI tweaks, weather mods, animations, and various gameplay-enhancing mods. This base setup can then be used to build onto and to add secondary mods, such as companions, NPCs, houses, quests, encounters, and so on.
 
 This guide assumes a fairly good grasp of handling and understanding Windows-related file operations and being familiar with Mod Organizer.
 
 #### Why Skyrim LE?
+
+With Skyrim Special Edition having been released in mid 2017 you might wonder why anyone still uses Skyrim Legendary Edition! The answer is simply that the state of modding for SE is still nowhere near that of LE. SKSE64, while being usable, is still in alpha state and there are many great mods that aren't available for Skyrim SE. Not only that but ENBs tend to not look as good on SE either, in particular the DoF effect (that might be my personal experience but I've heard other players say the same). There isn't any HDT physics for SE yet either and you would miss out on many great mods that tweak the game in favorable ways.
+
+Skyrim SE may be more stable due to its 64bit nature and hence being able to address more memory space but recently a number of bug fix mods have been released for Skyrim LE that make it equally stable and on top of that you can use ENB to increase your VRAM beyond the 4GB limit of DirectX 9. So in the end there isn't a good reason to favor SE over LE until the mod community has caught up with SE to make it equally awesome as the modding state of Skyrim LE.
+
+With that in mind, while many of the topics of this guide may also apply for Skyrim SE, it has been written strictly for Skyrim LE.
 
 #### Hardware Reference
 
@@ -51,27 +57,13 @@ As a reference, this guide is based on the following system (measured with [www.
 
 ### 2. System Preparation & Optimization
 
+A game can only run as good as the system on which it runs. this sections tell you how to optimize Windows to get the most out of it for smooth gameplay.
+
 ---
 
-### 3. Software & Tools
+### 3. Mod Organizer
 
-The following list provides an overview of the most important tools used for modding Skyrim.
-
-#### 3.1 Skyrim Script Extender (SKSE)
-
-Needless to say that you need this since many mods will require SKSE. Download the zipped version from [skse.silverlock.org](http://www.userbenchmark.com), unzip and copy the following files into your Skyrim install folder (e.g. `C:\Program Files (x86)\Steam\steamapps\common\Skyrim`).
-
-```
-skse_1_9_32.dll
-skse_loader.exe
-skse_steam_loader.dll
-```
-
-Install the SKSE `Script` folder incl. contents with Mod Organizer (see below) into a dedicated mod entry. **Do this step after you've installed Mod Organizer (We install SKSE before MO so that MO automatically picks up the SKSE loader)!** Simply zip the Scripts folder and then install it with Mod Organizer (Install a new mod from an archive) into a new mod entry named `SKSE` or something similar.
-
-#### 3.2 Mod Organizer
-
-Do yourself a favor and save a lot of headache while modding Skyrim by using **Mod Organizer** as your mod manager. As a matter of fact this guide assumes that you're using Mod Organizer. Contrary to what some guides and users will tell you Mod Organizer isn't hard to understand or hard to use. The important concept to understand with Mod Organizer is that it virtualizes the `Data` folder of Skyrim. What this means is that Mod Organizer stores all installed mods separately, each in its own folder and when Skyrim is launched via Mod Organizer it creates a 'virtual' file structure that resembles the `Data` folder as if all mods were installed physically into it. The advantage is that no files are ever physically overwritten and your Skyrim install folder never gets modified by Mod Organizer which makes modding non-destructive. Mod Organizer will 'override' (not 'overwrite') mod files that are lower in the load order with same-named files that are higher in the load order and thanks to the non-destructiveness you are able to move mods around in the load order without any loss of files. This makes it much easier to experiment with different load orders. This is the biggest advantage of Mod Organizer but by far not the only.
+Do yourself a favor and save yourself the headache while modding Skyrim by using **Mod Organizer** as your mod manager. As a matter of fact this guide assumes that you're using Mod Organizer. Contrary to what some guides and users will tell you Mod Organizer isn't hard to understand or hard to use. The important concept to understand with Mod Organizer is that it virtualizes the `Data` folder of Skyrim. What this means is that Mod Organizer stores all installed mods separately, each in its own folder and when Skyrim is launched via Mod Organizer it creates a 'virtual' file structure that resembles the `Data` folder as if all mods were installed physically into it. The advantage is that no files are ever physically overwritten and your Skyrim install folder never gets modified by Mod Organizer which makes modding non-destructive. Mod Organizer will 'override' (not 'overwrite') mod files that are lower in the load order with same-named files that are higher in the load order and thanks to the non-destructiveness you are able to move mods around in the load order without any loss of files. This makes it much easier to experiment with different load orders. This is the biggest advantage of Mod Organizer but by far not the only.
 
 By using the latest version of Mod Organizer (at the time of this writing v2.1.1) you are also able to use one Mod Organizer installation to properly manage all your Bethesda RPGs (Skyrim, Skyrim SE, Fallout 4, Oblivion, Fallout New Vegas) so you don't have to fumble around with multiple, standalone Mod Organizer installs.
 
@@ -95,6 +87,30 @@ usvfs_x86.dll
 ```
 You can delete the old `usvfs_proxy.exe`/`usvfs.dll` afterwards.
 
+##### Mod Organizer Tips
+
+  - **Unpacking BSAs**: In Mod Organizer's plugin settings you can enable the BSA Unpacker. This allows you to see which files of the mod are conflicting (override or being overridden) with other mods and you can more easily decide which mod should take preference, ignore certain files, etc. **HOWEVER**: loading loose files instead of BSAs has shown to be not only slower but also makes loading unstable in some cases. Therefore I recommend to leave BSAs packed if a mod comes with a BSA. Only mods that override existing asset files use unpacked files, everything else can safely stay inside a BSA archive.
+  - **Virtual File Access**: Configure your favorite file manager (e.g. [Directory Opus](https://www.gpsoft.com.au/)) to launch via Mod Organizer. This gives you access to the file structure of the *Data* folder as Skyrim will see it when launched. It enables you to browse the asset files that are ultimately used by the game. Then You could for example use a [DDS viewer](https://resource.dopus.com/t/simple-dds-viewer-plugin/2515) to check the textures, etc. Note that this won't work with the Windows Explorer as that Windows process is already running in memory by default so Mod Organizer can't hook its virtualized file system to it. You need an app that is launched and that quits later on.
+  - **Mod Files Location**: As hinted before, Mod Organizer stores downloaded/installed mods separately from the Skyrim installation directory. The default location for all your Mod Organizer Skyrim-related files is at `C:\Users\yourusername\AppData\Local\ModOrganizer\Skyrim`. Mod Organizer allows you to store these files in a different location **but it is recommended to have all installed mods on the same physical hard disk on which your Skyrim is installed**. If you store your installed mods on a different drive Skyrim will have to access files from two different drives which will decrease load performance.
+
+---
+
+### 4. Additional Tools
+
+The following list provides an overview of the most important tools used for modding Skyrim.
+
+#### 4.1 Skyrim Script Extender (SKSE)
+
+Needless to say that you need this since many mods will require SKSE. Download the zipped version from [skse.silverlock.org](http://www.userbenchmark.com), unzip and copy the following files into your Skyrim install folder (e.g. `C:\Program Files (x86)\Steam\steamapps\common\Skyrim`).
+
+```
+skse_1_9_32.dll
+skse_loader.exe
+skse_steam_loader.dll
+```
+
+Install the SKSE `Script` folder incl. contents with Mod Organizer (see below) into a dedicated mod entry. **Do this step after you've installed Mod Organizer (We install SKSE before MO so that MO automatically picks up the SKSE loader)!** Simply zip the Scripts folder and then install it with Mod Organizer (Install a new mod from an archive) into a new mod entry named `SKSE` or something similar.
+
 ##### SKSE Launch Argument
 
 If you've installed SKSE before Mod Organizer then MO should have picked it up automatically and created an SKSE entry under *Launchable Executables* (the blue/green gears icon) for you. If you use the Skyrim Steam version you should add the `-forcesteamloader` argument to the SKSE launch entry:
@@ -105,13 +121,7 @@ If you've installed SKSE before Mod Organizer then MO should have picked it up a
   4. Click on 'modify'.
   5. Close.
 
-##### Mod Organizer Tips
-
-  - **Unpacking BSAs**: In Mod Organizer's plugin settings you can enable the BSA Unpacker. This allows you to see which files of the mod are conflicting (override or being overridden) with other mods and you can more easily decide which mod should take preference, ignore certain files, etc. **HOWEVER**: loading loose files instead of BSAs has shown to be not only slower but also makes loading unstable in some cases. Therefore I recommend to leave BSAs packed if a mod comes with a BSA. Only mods that override existing asset files use unpacked files, everything else can safely stay inside a BSA archive.
-  - **Virtual File Access**: Configure your favorite file manager (e.g. [Directory Opus](https://www.gpsoft.com.au/)) to launch via Mod Organizer. This gives you access to the file structure of the *Data* folder as Skyrim will see it when launched. It enables you to browse the asset files that are ultimately used by the game. Then You could for example use a [DDS viewer](https://resource.dopus.com/t/simple-dds-viewer-plugin/2515) to check the textures, etc. Note that this won't work with the Windows Explorer as that Windows process is already running in memory by default so Mod Organizer can't hook its virtualized file system to it. You need an app that is launched and that quits later on.
-  - **Mod Files Location**: As hinted before, Mod Organizer stores downloaded/installed mods separately from the Skyrim installation directory. The default location for all your Mod Organizer Skyrim-related files is at `C:\Users\yourusername\AppData\Local\ModOrganizer\Skyrim`. Mod Organizer allows you to store these files in a different location **but it is recommended to have all installed mods on the same physical hard disk on which your Skyrim is installed**. If you store your installed mods on a different drive Skyrim will have to access files from two different drives which will decrease load performance.
-
-#### 3.3 LOOT
+#### 4.2 LOOT
 
 LOOT is a tool used to sort the load order of ESP files. It uses a master list with information about many published mods to arrange the files into a (hopefully) conflict-free order. It does a fairly good job at ordering your files but depending on the mods you install there might be exceptions where you still have to order manually afterwards. In my experience I found that I always have to order several mods manually and/or tell LOOT that it should place a specific mod after some others so know that you can't blindly rely on it. In addition LOOT is very useful to let you know of mods that need to be cleaned with TESEdit.
 
@@ -121,36 +131,32 @@ Install it and then add an executable link in Mod Organizer so that you can laun
 
 *Note*: Mod Organizer ships with its own LOOT integration but it's better to use the standalone LOOT because it is updated more frequently.
 
-#### 3.4 TES5Edit
+#### 4.3 TES5Edit
 
 TES5Edit is used to clean ESP files and can also be used to make other modifications to ESP files. Download it from [www.nexusmods.com/skyrim/mods/25859](https://www.nexusmods.com/skyrim/mods/25859), install it and add a link in Mod Organizer just like you did with LOOT.
 
-#### 3.5 Wrye Bash
+#### 4.4 Wrye Bash
 
 While Wrye Bash can be used for a lot of mod-related purposes, the main reason for our use is to create bashed patches which are required by some mods. Download it from [www.nexusmods.com/skyrim/mods/1840](https://www.nexusmods.com/skyrim/mods/1840), install it and add a link in Mod Organizer just like you did with LOOT.
 
-#### 3.6 Merge Plugins
+#### 4.5 Merge Plugins
 
 Another tool at our disposal, Merge Plugins is used to merge ESP files together as a workaround to the 256 ESP limit that Skyrim's engine has. By merging multiple compatible ESPs together we can exceed this limit. Download it from [www.nexusmods.com/skyrim/mods/69905](https://www.nexusmods.com/skyrim/mods/69905), install it and add a link in Mod Organizer just like you did with LOOT.
 
-#### 3.7 Save Game Script Cleaner
+#### 4.6 Save Game Script Cleaner
 
 A tool that can help with savegame cleaning in case you want to remove or update mods while actually playing Skyrim for a change ;). Download it from [www.nexusmods.com/skyrim/mods/52363](https://www.nexusmods.com/skyrim/mods/52363), install it and add a link in Mod Organizer just like you did with LOOT.
 
-#### 3.8 ENB And Reshade Manager
+#### 4.7 ENB And Reshade Manager
 
 This tool can be used to backup and restore all ENB-related files from the Skyrim folder and create presets to easily switch ENBs. A real time saver!
 Download it from [www.nexusmods.com/skyrimspecialedition/mods/4143](https://www.nexusmods.com/skyrimspecialedition/mods/4143) and install it. No need to run it via Mod Organizer since MO doesn't manage files that are located directly in the Skyrim root folder.
 
-#### 3.9 BethINI
-
-A tool that creates clean ini files that are up-to-date with the latest knowledge about Skyrim's ini settings. It's recommended to create fresh ini files with this tool and then adapt them to your preference (disable the game controller for example). Download at [www.nexusmods.com/skyrim/mods/69787](https://www.nexusmods.com/skyrim/mods/69787).
-
 ---
 
-### 4. Ini File Optimization
+### 5. Ini Files
 
-#### 4.1 Creating Clean Inis with BethINI
+#### 5.1 BethINI
 
 **BethINI** is a new tool that creates clean Ini files, fine-tuned per the latest knowledge from the Skyrim modding community. To eliminate most common issues right from the start you should create fresh Ini files and then change a couple of properties for optimal use.
 
@@ -162,7 +168,7 @@ Install the tool where you keep all your modding tools. BethINI will modify your
 
 Once installed, close Mod Organizer if you have it open and launch BethINI.
 
-#### 4.2 Skyrim.ini
+#### 5.2 Skyrim.ini
 
 ```
 [Display]
@@ -173,7 +179,7 @@ fSunUpdateThreshold=0.05
   - `fSunShadowUpdateTime`: Determines the time in seconds at which the sun position is updated which in turn causes the shadow to move.
   - `fSunUpdateThreshold`: Determines the time between sun-shadow transitions. A value of 0.05 is equal to 1 second, so a value of 1 equals 20 seconds and a value of 0.005 equals 100 milliseconds. Increasing this also increases the distance the shadows will move during the transition.
 
-#### 4.3 Skyrimprefs.ini
+#### 5.3 Skyrimprefs.ini
 
 ```
 [Display]
@@ -187,7 +193,7 @@ iShadowMapResolution=8192
 ```
 
 
-#### 4.4 SKSE.ini
+#### 5.4 SKSE.ini
 
 Find SKSE.ini by going into Mod Organizer, double-click your SKSE mod (as mentioned in 3.1), Filetree tab, under *SKSE/SKSE.ini*. If the file isn't there, create it. Make sure the file reflects the following settings:
 
@@ -207,27 +213,7 @@ EnableDiagnostics=1
 
 ---
 
-### 5. Essential Bug Fixes & Patches
-
-#### 5.1 Crash Fixes Mod & SKSE Plugin Preloader
-
-If you were cursing at your heavily modded Skyrim crashing approx. every 30 minutes there is finally a cure for you! These two amazing tweaks will likely fix most of your Skyrim LE crashes. The Crash Fixes mod eliminates 99.9% of crashes for me and it will most likely for you!
-
-  - [Crash Fixes by meh321](https://www.nexusmods.com/skyrim/mods/72725/?)
-  - [SKSE Plugin Preloader](https://www.nexusmods.com/skyrim/mods/75795/?)
-
-##### Installation
-  1. Extract **SKSE Plugin Preloader**, copy `d3dx9_42.dll` into your Skyrim folder (where `TESV.exe` is located).
-  2. Install **Crash fixes by meh321** with Mod Organizer.
-  3. In Mod Organizer check if you have a file named `CrashFixPlugin_preload.txt` in `SKSE\Plugins` (besides `CrashFixPlugin.ini` and `CrashFixPlugin.dll`), if not, create it (can be an empty file).
-  4. Open `CrashFixPlugin.ini`, and set `UseOSAllocators` to `1`. Save the file.
-  5. Done!
-
-The Crash fixes mod fixes many of the bugs, see the mod's website and `CrashFixPlugin.ini` for details. The SKSE Plugin Preloader makes sure that mods are loaded before game initialization for which it finds the `_preload.txt` file.
-
----
-
-### 6. Graphics Modding & Optimization
+### 6. Graphics Optimization
 
 #### 6.1 Graphics Driver Settings
 
@@ -302,28 +288,11 @@ You need two files to get started:
 Also get the VRAM Size test tool from enbdev:
   - [VRAM Size Test](http://enbdev.com/download_vramsizetest.htm)
 
-#### 6.4 Texture & Mesh Replacers
-
-#### 6.5 LODs
-
-LODs (Level Of Detail) are textures that are smaller and more resource-friendly than their full size counterparts and which are rendered by the game engine instead of hires textures when a textured object is far away from the player and texture detail isn't important because the object is in the distance. The difference between LODs and mipmaps is that LODs are actually not only lowres textures but also simplified meshes on which the textures are applied. Skyrim uses LODs for all large objects like rocks, trees, ground, houses, etc. to reduce the burden on the GPU. LODs can be generated with different levels of resolution and quality and this section walks you through generating the best-posssible LODs that wont eat up too much of your available VRAM. We will use three different tools to accomplish this: **TES5LODGen**, **TexGen**, and **DynDOLOD** and we set up these tools in Mod Organizer so that re-generating LODs will take the least amount of efforts because you will need to re-generate LODs from time to time after you installed new texture packs or mods like houses or city improvements, etc.
-
-First get the tools and install them in a location where you keep all your modding tools.
-
-  - [TES5LODGen](https://www.nexusmods.com/skyrim/mods/62698)
-  - [DynDOLOD](https://www.nexusmods.com/skyrim/mods/59721) (TexGen is included. Also download the **DynDOLOD Resources** package over Mod Organizer!)
-
-After that you want to create three empty mods in Mod Organizer (right-click on left list and chose 'Create Empty Mod'). Respectively name them:
-
-  - TES5LODGen Generated LODs
-  - TexGen Generated Files
-  - DynDOLOD Generated LODs
-
-Next you link the three tools to Mod Organizer so that you can launch them over MO and so they place generated files right into the empty mods you've just created.
-
 ---
 
-### 7. Modding Tips
+### 7. Mod Installation
+
+After we've optimized the system, installed Mod Organizer and other required tools, installed SKSE, created clean Ini files, optimized graphics driver settings, calibrated the monitor, and installed the ENB we're finally ready to install mods. All mods will be installed with Mod Organizer unless stated otherwise.
 
 #### 7.1 Mod Installation Best Practices
 
@@ -335,16 +304,15 @@ Here are some general rules that should be followed for a clean and smooth runni
   - If a mod contains doc files (readmes, screenshots, etc.) create a folder named _Docs_ and move these files into it. Then set the Docs folder as hidden (MO will add the extension _.mohidden_ to it). Do the same with _Source_ folders. This will have MO ignore all these mod-unrelated files.
   - You can install additional ESP files for a mod and set them as optional in MO if they are not required or if you need them later as a dependency for another mod.
 
-##### Installation Order
+#### 7.2 Installation Order
 
-  1. Modder Resources
+  1. Mod Resources
   2. Bugfixes & Patches
   3. 
 
+#### 7.3 General Load Order
 
-#### 7.2 General Load Order
-
-It's a good idea to define a categorical mod order in Mod Organizer to prevent chaos from ruling your mod list. However due to the nature of Skyrim mods (assets & ESP files) it's not always possible to follow a strict order since you will have to move textures and ESPs around to suit your mod overrides but you can set up a 'rough' order that follows some mod categories. For example you want texture replacers late in your mod order and mods that only contain SKSE plugins can be anywhere since they don't adhere to a specific load ordering. Here is a categorical order that I'm following for the mod entries in the left pane in Mod Organizer:
+It's a good idea to define a categorical mod order in Mod Organizer to prevent chaos from ruling your mod list. However due to the nature of Skyrim mods (assets & ESP files) it's not always easy to follow a strict order since you will have to move textures and ESPs around to suit your mod overrides. But you can set up a 'rough' order that follows some mod categories. For example you want texture replacers late in your mod order and mods that only contain SKSE plugins can be anywhere since they don't adhere to a specific load ordering. Here is a categorical order that I'm following for the mod entries in the left pane in Mod Organizer:
 
 ```
 Official Update
@@ -388,16 +356,56 @@ Generated (FNIS, SKSE Configs, etc.)
 
 Note that you still have to make some exceptions for specific mods. Several of my mods don't work or look right unless I place them on a higher priority than they would be in their respective category so I order them under *Top Priority*.
 
----
+### 8. Mods
 
-### 8. Essential Mods
+This section will finally lead you through installing mods. We'll first install the most critical and essential ones and then work our way up through other mandatory mods that have proven to be worthy. Eventually I will recommend some secondary mods that I found suitable for a base setup.
+
+#### 8.1 Mod Resources, Bug Fixes & Patches
+
+**Crash Fixes Mod & SKSE Plugin Preloader**
+
+If you were cursing at your heavily modded Skyrim crashing approx. every 30 minutes there is finally a cure for you! These two amazing tweaks will likely fix most of your Skyrim LE crashes. The Crash Fixes mod eliminates 99.9% of crashes for me and it will most likely for you!
+
+  - [Crash Fixes by meh321](https://www.nexusmods.com/skyrim/mods/72725/?)
+  - [SKSE Plugin Preloader](https://www.nexusmods.com/skyrim/mods/75795/?)
+
+**Installation**
+
+  1. Extract **SKSE Plugin Preloader**, copy `d3dx9_42.dll` into your Skyrim folder (where `TESV.exe` is located).
+  2. Install **Crash fixes by meh321** with Mod Organizer.
+  3. In Mod Organizer check if you have a file named `CrashFixPlugin_preload.txt` in `SKSE\Plugins` (besides `CrashFixPlugin.ini` and `CrashFixPlugin.dll`), if not, create it (can be an empty file).
+  4. Open `CrashFixPlugin.ini`, and set `UseOSAllocators` to `1`. Save the file.
+  5. Done!
+
+The Crash fixes mod fixes many of the bugs, see the mod's website and `CrashFixPlugin.ini` for details. The SKSE Plugin Preloader makes sure that mods are loaded before game initialization for which it finds the `_preload.txt` file.
+
+#### 8.2 User Interface
+
+#### 8.3 Texture & Mesh Replacers
+
+#### 8.4 LODs
+
+LODs (Level Of Detail) are textures that are smaller and more resource-friendly than their full size counterparts and which are rendered by the game engine instead of hires textures when a textured object is far away from the player and texture detail isn't important because the object is in the distance. The difference between LODs and mipmaps is that LODs are actually not only lowres textures but also simplified meshes on which the textures are applied. Skyrim uses LODs for all large objects like rocks, trees, ground, houses, etc. to reduce the burden on the GPU. LODs can be generated with different levels of resolution and quality and this section walks you through generating the best-posssible LODs that wont eat up too much of your available VRAM. We will use three different tools to accomplish this: **TES5LODGen**, **TexGen**, and **DynDOLOD** and we set up these tools in Mod Organizer so that re-generating LODs will take the least amount of efforts because you will need to re-generate LODs from time to time after you installed new texture packs or mods like houses or city improvements, etc.
+
+First get the tools and install them in a location where you keep all your modding tools.
+
+  - [TES5LODGen](https://www.nexusmods.com/skyrim/mods/62698)
+  - [DynDOLOD](https://www.nexusmods.com/skyrim/mods/59721) (TexGen is included. Also download the **DynDOLOD Resources** package over Mod Organizer!)
+
+After that you want to create three empty mods in Mod Organizer (right-click on left list and chose 'Create Empty Mod'). Respectively name them:
+
+  - TES5LODGen Generated LODs
+  - TexGen Generated Files
+  - DynDOLOD Generated LODs
+
+Next you link the three tools to Mod Organizer so that you can launch them over MO and so they place generated files right into the empty mods you've just created.
 
 ---
 
 ### 9. Troubleshooting
 
   - **Issue**: The lips on my character's skin are pixelated.
-  **Solution**: Find the texture used for the lips tint mask and check its texture size. Edit *SKSE.ini* and set `iTintTextureResolution` to the size (e.g. 1024, 2048, etc).
+  **Solution**: Find the texture used for the lips tint mask and check its texture size. Edit *SKSE.ini* and set `iTintTextureResolution` to the size (e.g. 1024, 2048, 4096, etc), most likely 2048.
 
   - **Issue**: Skyrim takes screenshots whenever I press the <key>End</key> key (In particular frustrating if you're a left-hander using the End key as your 'Use' key).
   **Solution**: You most likely have an ENB installed that contains a file named *injector.ini*. It is there where this obnoxious keyboard shortcut hides. You might want to remove all the keyboard assignments defined in this file:

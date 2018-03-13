@@ -385,6 +385,24 @@ The Crash fixes mod fixes many of the bugs, see the mod's website and `CrashFixP
 
 #### 8.3 Texture & Mesh Replacers
 
+**A Note On Parallax Maps**
+
+Some texture mods include parallax maps. Parallax mapping is just a fancy word for height maps that can be utilized by ENB to make textures look more '3D'. Normal maps do that, too but parallax maps [go a few steps further](https://en.wikipedia.org/wiki/Parallax_mapping) to make the depth effect of textures look even more realistic. Parallax maps are used in two different ways by ENB:
+
+  - Ground textures with parallax
+  - Other 3D objects with parallax
+
+And both of these can be enabled in _enblocal.ini_ ...
+
+```
+[FIX]
+FixParallaxBugs=true
+FixParallaxTerrain=false
+```
+
+  - ```FixParallaxBugs```: If true enabled parallax mapping for any non-ground objects. If an object texture comes with a parallax map the object receives parallax mapping, if not then the object will just be alright without it.
+  - ```FixParallaxTerrain```: If true this applies parallax effect to ground textures. This switch is all or nothing! If enabled, all ground textures are processed. This means you should have texture mods installed that have a parallax map provided for all ground textures. If this is enabled an a ground texture doesn't have a parallax map the ground will look trippy (in a not-good sense). Luckily there are a couple of texture mods that cover all ground textures.
+
 #### 8.4 LODs
 
 [LODs](https://en.wikipedia.org/wiki/Level_of_detail) (Level Of Detail) are textures that are smaller and more resource-friendly than their full size counterparts and which are rendered by the game engine instead of hires textures when a textured object is far away from the player and texture detail isn't important because the object is in the distance. Simply put, the difference between LODs and [Mipmaps](https://en.wikipedia.org/wiki/Mipmap) is that LODs are actually not only lowres textures but also simplified meshes on which the textures are applied. Skyrim uses LODs for all large objects like rocks, trees, ground, houses, etc. to reduce the burden on the GPU. LODs can be generated with different levels of resolution and quality and this section walks you through generating the best-posssible LODs that wont eat up too much of your available VRAM. We will use three different tools to accomplish this: **TES5LODGen**, **TexGen**, and **DynDOLOD** and we set up these tools in Mod Organizer so that re-generating LODs will take the least amount of efforts because you will need to re-generate LODs from time to time after you installed new texture packs or mods like houses or city improvements, etc.

@@ -400,8 +400,8 @@ FixParallaxBugs=true
 FixParallaxTerrain=false
 ```
 
-  - ```FixParallaxBugs```: If true enabled parallax mapping for any non-ground objects. If an object texture comes with a parallax map the object receives parallax mapping, if not then the object will just be alright without it.
-  - ```FixParallaxTerrain```: If true this applies parallax effect to ground textures. This switch is all or nothing! If enabled, all ground textures are processed. This means you should have texture mods installed that have a parallax map provided for all ground textures. If this is enabled an a ground texture doesn't have a parallax map the ground will look trippy (in a not-good sense). Luckily there are a couple of texture mods that cover all ground textures.
+  - ```FixParallaxBugs```: If set to true, enables parallax mapping for any non-ground objects. If an object texture comes with a parallax map the object receives parallax mapping, if not then the object will just be alright without it. Enabled by default and you can safely leave it on.
+  - ```FixParallaxTerrain```: If true this applies parallax effects to ground textures. This switch is all or nothing! If enabled, all ground textures are processed. This means you should have texture mods installed that have a parallax map provided for all ground textures. If this is enabled and a ground texture doesn't have a parallax map then the ground covered with that texture will look trippy (in a not-good sense). Luckily there are a couple of texture mods that cover all ground textures. For this guide you should enable this option because we are going to install texture mods that will cover all ground textures with parallax maps.
 
 #### 8.4 LODs
 

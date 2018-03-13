@@ -21,7 +21,7 @@ Origin: [github.com/ciathyza/skyrim-optimization-guide-2018](https://github.com/
 
 ### 1. Introduction
 
-This document is designed to provide a complete and comprehensive guide for modding and optimizing Skyrim LE (Legendary Edition) by going into great detail of tweaking the game to provide a visually high-end and rich, dynamic gameplay while still running stable and at a fluid framerate.
+This document is designed to provide a complete and comprehensive guide for modding and optimizing Skyrim LE (Legendary Edition) by going through the steps of tweaking and modding the game to provide a visually high-end and rich, dynamic gameplay while still running stable and at a fluid framerate.
 
 The aim of this guide is to provide a reliable walkthrough to create a base mod setup from the ground up that consists of an ENB, tweaked for gameplay but visually pleasing, texture and mesh replacements, UI tweaks, weather mods, animations, and various gameplay-enhancing mods. This base setup can then be used to build onto and to add secondary mods, such as companions, NPCs, houses, quests, encounters, and so on.
 

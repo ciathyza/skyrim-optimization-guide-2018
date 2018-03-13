@@ -25,7 +25,7 @@ This document is designed to provide a complete and comprehensive guide for modd
 
 The aim of this guide is to provide a reliable walkthrough to create a base mod setup that consists of an ENB, tweaked for gameplay but visually pleasing, texture and mesh replacements, UI tweaks, weather mods, animations, and various gameplay-enhancing mods. This base setup can then be used to build on and add secondary mods, such as companions, houses, quests, etc.
 
-This guide assumes a fairly good grasp of handling and understanding Windows-related file operations ans being familiar with Mod Organizer.
+This guide assumes a fairly good grasp of handling and understanding Windows-related file operations and being familiar with Mod Organizer.
 
 #### Why Skyrim LE?
 
@@ -33,13 +33,17 @@ This guide assumes a fairly good grasp of handling and understanding Windows-rel
 
 As a reference, this guide is based on the following system (measured with [www.userbenchmark.com](http://www.userbenchmark.com)):
 
-  - CPU: Intel Core i7-7700K @ 4.2GHz
+  - CPU: Intel Core i7-7700K @ 4.2GHz (Max. 4.8GHz)
   - GPU: Zotac GTX 1080
   - SSD: Transcend TS1TSSD370S 1TB
   - SSD: Samsung 850 Evo 1TB
   - HDD: WD Black 1TB
-  - RAM: Corsair Vengeance LPX DDR4 3000 C15 2x16GB
+  - RAM: Corsair Vengeance LPX DDR4 3000 C15 2 x 16GB
   - MBD: Asus MAXIMUS IX HERO
+  - CPU Cooler: Noctua NH - U12s
+  - Screen: ASUS PG348Q ROF Swift 21:9
+  - Mouse: Razer Lancehead Tournament Edition (Wired)
+  - Keyboard: Filco Majestouch (Cherry Blue Switches)
   - OS: Windows 10 64bit
   - UserBenchmarks: Game 119%, Desk 105%, Work 88%
 
@@ -79,7 +83,7 @@ Download the installer .exe and install it wherever you normally install your pr
 
 ##### USVFS
 
-**Optional but recommended**: you might want to join the `ModOrganizerDevs` chat channel on Discord ([discordapp.com/invite/JdQvBtn](https://discordapp.com/invite/JdQvBtn)). Not only can you get modding-related help from other users there but the `#builds` room provides a download link to the latest USVFS beta version and that's the one you want to use unless there is a final non-beta available in the future.
+**Optional but recommended**: you might want to join the `ModOrganizerDevs` chat channel on Discord ([discordapp.com/invite/JdQvBtn](https://discordapp.com/invite/JdQvBtn)). Not only can you get modding-related help from other users there but the `#builds` room provides a download link to the latest Mod Organizer and USVFS dev versions and that's the one you want to use unless there is a final non-beta available in the future.
 
 USVFS is the file system component that Mod Organizer uses for its file virtualization. If you download the latest version of USVFS (e.g. link named `usvfs 0.3.1-beta5`) you need to unpack the files and manually copy them to your Mod Organizer installation directory. The files needs are:
 
@@ -103,7 +107,7 @@ If you've installed SKSE before Mod Organizer then MO should have picked it up a
 
 ##### Mod Organizer Tips
 
-  - **Unpacking BSAs**: In Mod Organizer's plugin settings you can enable the BSA Unpacker. This allows you to see which files of the mod are conflicting (override or being overridden) with other mods and you can more easily decide which mod should take preference, ignore certain files, etc. HOWEVER: loading loose files instead of BSAs has shown to be not only slower but also makes loading unstable in some cases. Therefore I recommend to leave BSAs packed if a mod comes with a BSA. Only mods that override existing asset files use unpacked files, everything else can safely stay inside a BSA archive.
+  - **Unpacking BSAs**: In Mod Organizer's plugin settings you can enable the BSA Unpacker. This allows you to see which files of the mod are conflicting (override or being overridden) with other mods and you can more easily decide which mod should take preference, ignore certain files, etc. **HOWEVER**: loading loose files instead of BSAs has shown to be not only slower but also makes loading unstable in some cases. Therefore I recommend to leave BSAs packed if a mod comes with a BSA. Only mods that override existing asset files use unpacked files, everything else can safely stay inside a BSA archive.
   - **Virtual File Access**: Configure your favorite file manager (e.g. [Directory Opus](https://www.gpsoft.com.au/)) to launch via Mod Organizer. This gives you access to the file structure of the *Data* folder as Skyrim will see it when launched. It enables you to browse the asset files that are ultimately used by the game. Then You could for example use a [DDS viewer](https://resource.dopus.com/t/simple-dds-viewer-plugin/2515) to check the textures, etc. Note that this won't work with the Windows Explorer as that Windows process is already running in memory by default so Mod Organizer can't hook its virtualized file system to it. You need an app that is launched and that quits later on.
   - **Mod Files Location**: As hinted before, Mod Organizer stores downloaded/installed mods separately from the Skyrim installation directory. The default location for all your Mod Organizer Skyrim-related files is at `C:\Users\yourusername\AppData\Local\ModOrganizer\Skyrim`. Mod Organizer allows you to store these files in a different location **but it is recommended to have all installed mods on the same physical hard disk on which your Skyrim is installed**. If you store your installed mods on a different drive Skyrim will have to access files from two different drives which will decrease load performance.
 
@@ -138,7 +142,7 @@ A tool that can help with savegame cleaning in case you want to remove or update
 This tool can be used to backup and restore all ENB-related files from the Skyrim folder and create presets to easily switch ENBs. A real time saver!
 Download it from [www.nexusmods.com/skyrimspecialedition/mods/4143](https://www.nexusmods.com/skyrimspecialedition/mods/4143) and install it. No need to run it via Mod Organizer since MO doesn't manage files that are located directly in the Skyrim root folder.
 
-#### 3.9 Bethini
+#### 3.9 BethINI
 
 A tool that creates clean ini files that are up-to-date with the latest knowledge about Skyrim's ini settings. It's recommended to create fresh ini files with this tool and then adapt them to your preference (disable the game controller for example). Download at [www.nexusmods.com/skyrim/mods/69787](https://www.nexusmods.com/skyrim/mods/69787).
 
@@ -146,7 +150,19 @@ A tool that creates clean ini files that are up-to-date with the latest knowledg
 
 ### 4. Ini File Optimization
 
-#### 4.1 Skyrim.ini
+#### 4.1 Creating Clean Inis with BethINI
+
+**BethINI** is a new tool that creates clean Ini files, fine-tuned per the latest knowledge from the Skyrim modding community. To eliminate most common issues right from the start you should create fresh Ini files and then change a couple of properties for optimal use.
+
+Get the tool here:
+
+  - [BethINI](https://www.nexusmods.com/skyrim/mods/69787)
+
+Install the tool where you keep all your modding tools. BethINI will modify your Ini files in your Documents/My Games location so you don't have to worry about your Inis in your Mod Organizer profile folder but it's always good to make a backup of your current Ini files.
+
+Once installed, close Mod Organizer if you have it open and launch BethINI.
+
+#### 4.2 Skyrim.ini
 
 ```
 [Display]
@@ -157,7 +173,7 @@ fSunUpdateThreshold=0.05
   - `fSunShadowUpdateTime`: Determines the time in seconds at which the sun position is updated which in turn causes the shadow to move.
   - `fSunUpdateThreshold`: Determines the time between sun-shadow transitions. A value of 0.05 is equal to 1 second, so a value of 1 equals 20 seconds and a value of 0.005 equals 100 milliseconds. Increasing this also increases the distance the shadows will move during the transition.
 
-#### 4.2 Skyrimprefs.ini
+#### 4.3 Skyrimprefs.ini
 
 ```
 [Display]
@@ -171,7 +187,7 @@ iShadowMapResolution=8192
 ```
 
 
-#### 4.3 SKSE.ini
+#### 4.4 SKSE.ini
 
 Find SKSE.ini by going into Mod Organizer, double-click your SKSE mod (as mentioned in 3.1), Filetree tab, under *SKSE/SKSE.ini*. If the file isn't there, create it. Make sure the file reflects the following settings:
 
@@ -290,12 +306,12 @@ Also get the VRAM Size test tool from enbdev:
 
 #### 6.5 LODs
 
-LODs (Level Of Detail) are textures that are smaller and more resource-friendly than their full size counterparts and which are rendered by the game engine instead of hires textures when a textured object is far away from the player and texture detail isn't important because the object is in the distance. The difference between LODs and mipmaps is that LODs are actually not only lowres textures but also simplified meshes on which the textures are applied. Skyrim uses LODs for all large objects like rocks, trees, ground, houses, etc. to reduce the burden on the GPU. LODs can be generated with different levels of resolution and quality and this section walks you through generating the best-posssible LODs that wont eat up too much of your available VRAM. We will use three different tools to accomplish this: TES5LODGen, TexGen, and DynDOLOD and we set up these tools in Mod Organizer so that re-generating LODs will take the least amount of efforts because you will need to re-generate LODs from time to time after you installed new texture packs or mods like houses or city improvements, etc.
+LODs (Level Of Detail) are textures that are smaller and more resource-friendly than their full size counterparts and which are rendered by the game engine instead of hires textures when a textured object is far away from the player and texture detail isn't important because the object is in the distance. The difference between LODs and mipmaps is that LODs are actually not only lowres textures but also simplified meshes on which the textures are applied. Skyrim uses LODs for all large objects like rocks, trees, ground, houses, etc. to reduce the burden on the GPU. LODs can be generated with different levels of resolution and quality and this section walks you through generating the best-posssible LODs that wont eat up too much of your available VRAM. We will use three different tools to accomplish this: **TES5LODGen**, **TexGen**, and **DynDOLOD** and we set up these tools in Mod Organizer so that re-generating LODs will take the least amount of efforts because you will need to re-generate LODs from time to time after you installed new texture packs or mods like houses or city improvements, etc.
 
 First get the tools and install them in a location where you keep all your modding tools.
 
   - [TES5LODGen](https://www.nexusmods.com/skyrim/mods/62698)
-  - [DynDOLOD](https://www.nexusmods.com/skyrim/mods/59721) (TextGen is included. Also download the **DynDOLOD Resources** package over Mod Organizer!)
+  - [DynDOLOD](https://www.nexusmods.com/skyrim/mods/59721) (TexGen is included. Also download the **DynDOLOD Resources** package over Mod Organizer!)
 
 After that you want to create three empty mods in Mod Organizer (right-click on left list and chose 'Create Empty Mod'). Respectively name them:
 

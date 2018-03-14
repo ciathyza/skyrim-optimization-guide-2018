@@ -193,7 +193,37 @@ Get the tool here:
 
 Install the tool where you keep all your modding tools. BethINI will modify your Ini files in your Documents/My Games location so you don't have to worry about your Inis in your Mod Organizer profile folder but it's always good to make a backup of your current Ini files.
 
-Once installed, close Mod Organizer if you have it open and launch BethINI.
+Once installed, close Mod Organizer if you have it running and launch BethINI. Next follow these steps:
+
+  1. Upon first launch BethINI will ask which game to configure. In this case, choose Skyrim.
+  2. **Setup tab**: If the Mod Organizer field is blank, select the drop-down menu and then click browse and navigate to your Mod Organizer install location. BethINI may restart afterwards.
+  3. Set the INI path to your current Mod Organizer profile folder. Again BethINI will probably restart.
+  4. Finally, for the setup tab ensure that ```Fix Creation Kit``` is checked.
+  5. **Basic tab**: ensure ```BethINI Presets``` is selected, click the ```Default``` button to reset the INI files.
+  6. Click the ```High``` button and then check ```Recommended Tweaks```.
+  7. Ensure ```ENB Mode``` is checked as well as ```Enable File Selection```.
+  8. Ensure ```Fullscreen Mode``` is checked.
+  9. If you don't use a GSync screen, ensure that ```V-Sync``` is checked, otherwise uncheck it.
+  10. Ensure ```Anisotropic Filtering``` is set to ```None```.
+  11. **General tab**: No changes required here!
+  12. **Gameplay tab**: Set the ```Over-Encumber reminder``` to ```3600```.
+  13. **Interface tab**: Ensure ```Fix Map Menu Navigation``` and ```Remove Map Menu Blur``` are checked.
+  14. Set the quest markers, compass and subtitles options to your preference.
+  15. Mouse settings are recommended to be left at defaults.
+  16. Detail tab: If using a 16:9 screen (1080p, 1440p) it's recommended to set ```Field of View``` to ```70.59```. 16:10 users (1680x1050, 1920x1200) should leave this at ```65```. Alternatively, leave this at ```65``` and use the Customizable Camera mod from the Nexus to handle all aspects of the camera from an MCM menu with the ability to save preset profiles.
+  17. Ensure that ```Reflect Sky``` is checked.
+  18. Set ```Particles``` to ```10000```.
+  19. **View Distance tab**: Set values as follows:
+    - Object Fade: 15
+    - Actor Fade: 15
+    - Item Fade: 15
+    - Grass Fade: Max
+    - Light Fade: Max
+  20. For ```Distant Object Detail``` choose the high preset.
+  21. **Visuals tab**: Ensure ```Gamma``` is set to ```1``` (this depends on the ENB you use but since this guide uses Rudy ENB we will use a value of 1).
+  22. Ensure ```Grass Diversity``` is set to ```15``` and ```Grass Density``` is set to ```60``` (very dense grass). These values are for use with Skyrim Flora Overhaul and Verdant Grass. You can use a larger density value if 60 is too much of a performance hit.
+  23. Set ```Far-off Tree Distance``` to ```40000```.
+  24. Head back to the **Basic tab** and click ```Save and Exit```.
 
 #### 6.2 Skyrim.ini
 

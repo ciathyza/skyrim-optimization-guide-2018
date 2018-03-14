@@ -49,8 +49,10 @@ As a reference, this guide is based on the following system (measured with [www.
   - HDD: WD Black 1TB
   - RAM: Corsair Vengeance LPX DDR4 3000 C15 2 x 16GB
   - MBD: Asus MAXIMUS IX HERO
+  - PSU: Corsair HX1000i
   - CPU Cooler: Noctua NH - U12s
   - Screen: ASUS PG348Q ROF Swift 21:9
+  - Case: Antec Performance One Series P183 V3
   - Mouse: Razer Lancehead Tournament Edition (Wired)
   - Keyboard: Filco Majestouch (Cherry Blue Switches)
   - OS: Windows 10 64bit

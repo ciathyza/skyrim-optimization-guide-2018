@@ -40,23 +40,25 @@ With that in mind, while many of the topics of this guide may also apply for Sky
 
 #### 1.2 Hardware Reference
 
-As a reference, this guide is based on the following system (measured with [www.userbenchmark.com](http://www.userbenchmark.com)):
+As a reference, this guide is based on the following system:
 
-  - CPU: Intel Core i7-7700K @ 4.2GHz (Max. 4.8GHz)
-  - GPU: Zotac GTX 1080
-  - SSD: Transcend TS1TSSD370S 1TB
-  - SSD: Samsung 850 Evo 1TB
-  - HDD: WD Black 1TB
-  - RAM: Corsair Vengeance LPX DDR4 3000 C15 2 x 16GB
-  - MBD: Asus MAXIMUS IX HERO
-  - PSU: Corsair HX1000i
-  - CPU Cooler: Noctua NH - U12s
-  - Screen: ASUS PG348Q ROF Swift 21:9
-  - Case: Antec Performance One Series P183 V3
-  - Mouse: Razer Lancehead Tournament Edition (Wired)
-  - Keyboard: Filco Majestouch (Cherry Blue Switches)
-  - OS: Windows 10 64bit
-  - UserBenchmarks: Game 119%, Desk 105%, Work 88%
+|:-----------|:---------------------------------------------|
+| CPU        | Intel Core i7-7700K @ 4.2GHz (Max. 4.8GHz)   |
+| GPU        | Zotac GTX 1080                               |
+| RAM        | Corsair Vengeance LPX DDR4 3000 C15 2 x 16GB |
+| SSD        | Samsung 850 Evo 1TB                          |
+| SSD        | Transcend TS1TSSD370S 1TB                    |
+| HDD        | WD Black 1TB                                 |
+| Mainboard  | Asus MAXIMUS IX HERO                         |
+| PSU        | Corsair HX1000i                              |
+| CPU Cooler | Noctua NH - U12s                             |
+| Case       | Antec Performance One Series P183 V3         |
+| Screen     | ASUS PG348Q ROF Swift 21:9                   |
+| Mouse      | Razer Lancehead Tournament Edition (Wired)   |
+| Keyboard   | Filco Majestouch (Cherry Blue Switches)      |
+| OS         | Windows 10 64bit                             |
+
+User Benchmarks (measured with [www.userbenchmark.com](http://www.userbenchmark.com)): Game 119%, Desk 105%, Work 88%
 
 This is (for the time being) fairly high-end but you should be able to achieve a good framerate even with a lesser GTX-level graphics card, less RAM, and a slower CPU. Of course a powerful graphics card with over 4GB of RAM is key to a fluid gameplay and having more RAM always helps because we can utilize it as VRAM via ENB.
 
@@ -259,31 +261,31 @@ These settings are for Nvidia users. As I don't use a AMD card I cannot provide 
 
 Go to your Nvidia graphics card driver settings (right-click on desktop, choose Nvidia Control Panel) and under 3D settings choose the application-specific settings for Skyrim (tesv.exe). The following table tells you about the recommended settings.
 
-| Nvidia Setting                                      | Recommended Value       |
-|:----------------------------------------------------|:------------------------|
-| Ambient Occlusion                                   | Off                     |
-| Anisotropic Filtering                               | 8x                      |
-| Antialiasing - FXAA                                 | Not supported           |
-| Antialiasing - Gamma correction                     | On                      |
-| Antialiasing - Mode                                 | Application-controlled  |
-| Antialiasing - Setting                              | Use global setting      |
-| Antialiasing - Transparency                         | 8x (supersample)        |
-| CUDA - GPUs                                         | Use global setting      |
-| Maximum pre-rendered frames                         | Application-controlled  |
-| Monitor Technology                                  | Fixed Refresh           |
-| Multi-Frame Sampled AA (MFAA)                       | On                      |
-| OpenGL rendering GPU                                | Auto-select             |
-| Power management mode                               | Optimal power           |
-| Preferred refresh rate                              | Application-controlled  |
-| Shader Cache                                        | On                      |
-| Texture filtering - Anisotropic sample optimization | Off                     |
-| Texture filtering - Negative LOD bias               | Clamp                   |
-| Texture filtering - Quality                         | High quality            |
-| Texture filtering - Trilinear optimization          | On                      |
-| Threaded optimization                               | On                      |
-| Triple buffering                                    | Off                     |
-| Vertical sync                                       | On                      |
-| Virtual Reality pre-rendered frames                 | Application-controlled  |
+| Nvidia Setting                                      | Recommended Value      |
+|:----------------------------------------------------|:-----------------------|
+| Ambient Occlusion                                   | Off                    |
+| Anisotropic Filtering                               | 8x                     |
+| Antialiasing - FXAA                                 | Not supported          |
+| Antialiasing - Gamma correction                     | On                     |
+| Antialiasing - Mode                                 | Application-controlled |
+| Antialiasing - Setting                              | Use global setting     |
+| Antialiasing - Transparency                         | 8x (supersample)       |
+| CUDA - GPUs                                         | Use global setting     |
+| Maximum pre-rendered frames                         | Application-controlled |
+| Monitor Technology                                  | Fixed Refresh          |
+| Multi-Frame Sampled AA (MFAA)                       | On                     |
+| OpenGL rendering GPU                                | Auto-select            |
+| Power management mode                               | Optimal power          |
+| Preferred refresh rate                              | Application-controlled |
+| Shader Cache                                        | On                     |
+| Texture filtering - Anisotropic sample optimization | Off                    |
+| Texture filtering - Negative LOD bias               | Clamp                  |
+| Texture filtering - Quality                         | High quality           |
+| Texture filtering - Trilinear optimization          | On                     |
+| Threaded optimization                               | On                     |
+| Triple buffering                                    | Off                    |
+| Vertical sync                                       | On                     |
+| Virtual Reality pre-rendered frames                 | Application-controlled |
 
 ##### For G-Sync Users
 
@@ -302,10 +304,10 @@ EnableFPSLimit=false
 
 In Nvidia graphics card driver settings change these settings accordingly:
 
-| Nvidia Setting                                      | Recommended Value       |
-|:----------------------------------------------------|:------------------------|
-| Monitor Technology                                  | GSync                   |
-| Vertical sync                                       | On                      |
+| Nvidia Setting     | Recommended Value |
+|:-------------------|:------------------|
+| Monitor Technology | GSync             |
+| Vertical sync      | On                |
 
 After this you should still limit the framerate to 57 FPS but since ENB's FPS limiter has proven not to be very reliable for me I recommend to use the FPS limiter from [Nvidia Inspector](https://www.guru3d.com/files-details/nvidia-inspector-download.html) instead. So download and run Nvidia Inspector, go into the Driver Profile Settings, select the profile for `Elder Scrolls V: Skyrim` and look for a setting named `Frame Rate Limiter`. Set it to a value around 57. Setting it to 57 instead of 60 will reduce input lag (at least if the game is running at full FPS).
 

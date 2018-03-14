@@ -42,6 +42,7 @@ With that in mind, while many of the topics of this guide may also apply for Sky
 
 As a reference, this guide is based on the following system:
 
+| Component  | Product                                      |
 |:-----------|:---------------------------------------------|
 | CPU        | Intel Core i7-7700K @ 4.2GHz (Max. 4.8GHz)   |
 | GPU        | Zotac GTX 1080                               |

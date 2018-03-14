@@ -213,7 +213,7 @@ Once installed, close Mod Organizer if you have it running and launch BethINI. N
   13. **Interface tab**: Ensure ```Fix Map Menu Navigation``` and ```Remove Map Menu Blur``` are checked.
   14. Set the quest markers, compass and subtitles options to your preference.
   15. Mouse settings are recommended to be left at defaults.
-  16. Detail tab: If using a 16:9 screen (1080p, 1440p) it's recommended to set ```Field of View``` to ```70.59```. 16:10 users (1680x1050, 1920x1200) should leave this at ```65```. Alternatively, leave this at ```65``` and use the Customizable Camera mod from the Nexus to handle all aspects of the camera from an MCM menu with the ability to save preset profiles.
+  16. Detail tab: If using a 16:9 screen (1080p, 1440p) it's recommended to set ```Field of View``` to ```70.59```. 16:10 users (1680x1050, 1920x1200) should leave this at ```65```. Alternatively, you can set it to your preferable value, e.g. ```90``` or leave this at ```65``` and use the Customizable Camera mod from the Nexus to handle all aspects of the camera from an MCM menu with the ability to save preset profiles.
   17. Ensure that ```Reflect Sky``` is checked.
   18. Set ```Particles``` to ```10000```.
   19. **View Distance tab**: Set values as follows:
@@ -231,27 +231,67 @@ Once installed, close Mod Organizer if you have it running and launch BethINI. N
 #### 6.2 Skyrim.ini
 
 ```
-[Display]
-fSunShadowUpdateTime=1
-fSunUpdateThreshold=0.05
+[HAVOK]
+fMaxTime=0.0166
 ```
 
-  - `fSunShadowUpdateTime`: Determines the time in seconds at which the sun position is updated which in turn causes the shadow to move.
-  - `fSunUpdateThreshold`: Determines the time between sun-shadow transitions. A value of 0.05 is equal to 1 second, so a value of 1 equals 20 seconds and a value of 0.005 equals 100 milliseconds. Increasing this also increases the distance the shadows will move during the transition.
+  - ```fMaxTime```: set this to 0.0166, which will cap havoc physics at 60 FPS.
+
+```
+[Display]
+fSunShadowUpdateTime=0.25
+fSunUpdateThreshold=1.5
+```
+
+  - `fSunShadowUpdateTime`: Determines the time in seconds at which the sun position is updated which in turn causes the shadow to move. I found that this looks best to me when left at default value (0.25). Alternatively you can try setting this to 1 and ```fSunUpdateThreshold``` to 0.05.
+  - `fSunUpdateThreshold`: Determines the time between sun-shadow transitions. A value of 0.05 is equal to 1 second, so a value of 1 equals 20 seconds and a value of 0.005 equals 100 milliseconds. Increasing this also increases the distance the shadows will move during the transition. Again I found this looks best at default value (1.5).
 
 #### 6.3 Skyrimprefs.ini
 
 ```
-[Display]
-iBlurDeferredShadowMask=16
-iMaxAnisotropy=0
-iMaxDecalsPerFrame=400
-iMaxSkinDecalsPerFrame=100
-iMultiSample=0
-iShadowFilter=4
-iShadowMapResolution=8192
+[Controls]
+bGamePadRumble=0
 ```
 
+  - ```bGamePadRumble```: If you don't use a gamepad to play Skyrim (and who does??) then set this to 0!
+
+```
+[Display]
+iBlurDeferredShadowMask=16
+iMultiSample=0
+iShadowFilter=4
+iShadowMapResolution=4096
+```
+
+  - ```iBlurDeferredShadowMask```: Determines how smooth character shadows are drawn. If your character hair's shadows are jaggy then this value is too low. Try setting it to 4 if you're on a lower spec system. If that's too jaggy, try a value of 6, then 6, and so on. Keep in mind the higher this value is the more a 'halo outline' appears around NPCs but I found that a value of 16 looks best for me. Some people set this to 32.
+  - ```iShadowMapResolution```: Determines the size of an in-memory texture map used for all shadows drawn in the current scene. 4096 should be fine for most systems. If your framerate struggles you can set this to 2048 and have lower shadow quality. A value of 8192 gives sharper, clearer shadows but might cause too much of an FPS impact. You can check what works best for you.
+
+```
+[Imagespace]
+bDoDepthOfField=1
+```
+
+  - ```bDoDepthOfField```: ensure that this is set to 1.
+
+```
+[MAIN]
+bGamepadEnable=0
+bSaveOnPause=0
+bSaveOnRest=0
+bSaveOnTravel=0
+bSaveOnWait=0
+```
+
+  - ```bGamepadEnable```: Again, you don't use a gamepad, do you?! Set this to 0.
+  - ```bSaveOn...```: Recommended to set all of these to 0 and do game saving manually.
+
+```
+[SaveGame]
+fAutosaveEveryXMins=0
+```
+
+  - ```fAutosaveEveryXMins```: Recommended to set this to 0.
+ 
 ---
 
 ### 7. Graphics Optimization

@@ -194,9 +194,7 @@ Get the tool here:
 
   - [BethINI](https://www.nexusmods.com/skyrim/mods/69787)
 
-Install the tool where you keep all your modding tools. BethINI will modify your Ini files in your Documents/My Games location so you don't have to worry about your Inis in your Mod Organizer profile folder but it's always good to make a backup of your current Ini files.
-
-Once installed, close Mod Organizer if you have it running and launch BethINI. Next follow these steps:
+Install the tool where you keep all your modding tools. Once installed, close Mod Organizer if you have it running and launch BethINI. Next follow these steps:
 
   1. Upon first launch BethINI will ask which game to configure. In this case, choose Skyrim.
   2. **Setup tab**: If the Mod Organizer field is blank, select the drop-down menu and then click browse and navigate to your Mod Organizer install location. BethINI may restart afterwards.
@@ -227,6 +225,8 @@ Once installed, close Mod Organizer if you have it running and launch BethINI. N
   22. Ensure ```Grass Diversity``` is set to ```15``` and ```Grass Density``` is set to ```60``` (very dense grass). These values are for use with Skyrim Flora Overhaul and Verdant Grass. You can use a larger density value if 60 is too much of a performance hit.
   23. Set ```Far-off Tree Distance``` to ```40000```.
   24. Head back to the **Basic tab** and click ```Save and Exit```.
+
+Next we're going to adjust some settings in the Ini files that BethINI didn't take care of ...
 
 #### 6.2 Skyrim.ini
 

@@ -398,21 +398,44 @@ To install the ENB follow these steps:
 
 Now that you have all necessary ENB files installed we're going to configure the ENB. Open *enblocal.ini* with a text editor and    adapt the values as follows ...
 
+**Proxy, Global, and Performance Settings**
+
+All these values can stay as they are for use with Rudy ENB.
+
 ```
 [PROXY]
 EnableProxyLibrary=false
 InitProxyFunctions=true
 ProxyLibrary=other_d3d9.dll
+```
 
+  - ```EnableProxyLibrary```: Enables/disables the use of the proxy. Unless using a separate post-processor in combination with ENB, this parameter should remain disabled. Enable it whenever using a second processing library is used such as, FXAA injector, SMAA or SweetFX.
+  - ```InitProxyFunctions```: For simplicity, if the above parameter is set to true this one should also be set to true; else leave it set to false. This parameter attaches drawing functions to the proxy library. When using a second post-procesor, only set this to false if the second .dll is not hooking rendering functions and needs to be injected into the game process (i.e. bug fixes or process memory patchers).
+  - ```ProxyLibrary```: This sets the name or full path to the proxy library that ENBSeries will load (second d3d9.dll file) if both the parameters above are enabled. If the second DLL file is not located in the root Skyrim directory, the full path must be used starting with the drive letter. Neither the name not full path supports unicode symbols. The second DLL must be renamed if it has the same name as the ENB DLL (d3d9.dll).
+
+```
 [GLOBAL]
 IgnoreCreationKit=true
 UseDefferedRendering=true
 UsePatchSpeedhackWithoutGraphics=false
+```
 
+  - ```IgnoreCreationKit```: Tells ENB to whether or not to ignore the Creation Kit. It is enabled by default and should be left enabled.
+  - ```UseDefferedRendering```: Enables/disables deferred shading rendering which many ENB effects are reliant upon. These include screen space ambient occlusion (SSAO), Image Based Lighting, Reflections, Particle Lights, and Skylighting. This can be disabled for users having performance issues; however, it will affect the look of the ENB preset. Should be enabled by default.
+  - ```UsePatchSpeedhackWithoutGraphics```: Used to turn the graphic modifications of ENB on or off. If only using ENBoost features, set this to true to disable the ENB graphic modifications. If using an ENB Preset, set the parameter to false. However this parameter is set, the ENBoost function will only work if SpeedHack is set to true under [PERFORMANCE].
+
+```
 [PERFORMANCE]
 EnableOcclusionCulling=true
 SpeedHack=true
+```
 
+  - ```EnableOcclusionCulling```: Enables/disables Occlusion Culling. It is enabled by default. Disabling this parameter will return Skyrim to its default behavior; however, this is not recommended. Leaving this enabled can provide a performance increase.
+  - ```SpeedHack```: Enables/disables certain DX9 functions not required by ENBoost in order to save some overhead, which could lead to better performance. It is recommended to always have it enabled.
+
+**Memory Settings**
+
+```
 [MEMORY]
 AutodetectVideoMemorySize=false
 DisableDriverMemoryManager=false
@@ -423,7 +446,19 @@ ExpandSystemMemoryX64=false
 ReduceSystemMemoryUsage=true
 ReservedMemorySizeMb=64
 VideoMemorySizeMb=22320
+```
 
+  - ```EnableCompression```: Enables/disables memory compression. It is disabled by default. Disabling memory compression can reduce stutter, but at the cost of more RAM usage. For this reason, it is generally only recommended to be disabled on systems with more than 2GB VRAM.
+  - ```ReservedMemorySizeMb```: This can be set to any value from 64 onwards. If you get stutter your actions will depend on your Windows version:
+    - **Windows 7** or the **Windows 10 with Fall Creators Update**: Increase in blocks of 16 or 32 until gameplay becomes smooth. At higher values, you will see diminishing returns so values above 1024 may not be beneficial.
+    - **Windows 8**, **Windows 8.1** or **Windows 10 prior to the October 2017 Fall Creators Update**: Increase in blocks of 16 or 32 until gameplay becomes smooth, but stop at 512, you're limited to 4064MB, you want to keep as much of that for actual rendering as you can. While your display driver knows it can use more VRAM and shared system RAM, Skyrim/ENB can't.
+    - ```VideoMemorySizeMb```: Run the VRAM Size Test tool you've downloaded earlier as admin (the DX9 version). This will give you the value to be entered here. Since I have 32GB RAM my value will be 22320MB (That's about 21GB of additional VRAM!) Boris' DX9 tool measures how much memory is available to ENB. This memory is used for enbhost.exe processes, which include both post-processing and serving as an additional pool of video memory for Skyrim. What this means: Skyrim's rather buggy and limited system of moving things in and out of video memory is hacked by enbhost.exe, and now Skyrim can use the memory it can access as well as the memory ENB can access.
+
+All other memory settings should be left as above.
+
+**Threads Settings**
+
+```
 [THREADS]
 DataSyncMode=0
 PriorityMode=0
@@ -432,11 +467,30 @@ EnableUnsafeFixes=false
 [MULTIHEAD]
 ForceVideoAdapterIndex=false
 VideoAdapterIndex=0
+```
 
+In the latest version of ENB, the "Threads" section was added. These changes will cause performance loss and stuttering. However, they can allow saves that would not load otherwise to load, and possibly some other stability improvements. So unless you have to deal with savegames that wont load, it is best to have these settings disabled, but if you wish to enable them the recommended settings follow ...
+
+  - ```DataSyncMode```: Should always be 0. You would probably do better to try using either of [Continue Game, No Crash](https://www.nexusmods.com/skyrim/mods/78557/?) or [Load Game CTD Fix](https://www.nexusmods.com/skyrim/mods/85443/?) with the latter being the preferred option, some users may have better results with the former.
+  - ```PriorityMode```: Should always be 0.
+  - ```EnableUnsafeFixes```: Recommended false as true may cause strange game bugs, however, test for yourself if needed.
+
+**Window Settings**
+
+```
 [WINDOW]
 ForceBorderless=false
 ForceBorderlessFullscreen=false
+```
 
+  - ```ForceBorderless```: Enables/disables borderless window. This setting forces the game to run in a window rather than as a fullscreen application as it normally would. However, the window will fill the whole screen but without a border. This enables users to Alt-Tab in and out of the game without issue but the game graphics will not be as contrasty and dark as on dedicated fullscreen mode.
+  - ```ForceBorderlessFullscreen```: This parameter will remove the border lines of the game window when Skyrim is set to Fullscreen Mode. This is best used when down sampling is also used.
+
+I recommend to leave these values set to false. If you do want to use borderless window mode there are better options for that, e.g. [OneTweak](http://www.nexusmods.com/skyrim/mods/40706/?).
+
+**Engine Settings**
+
+```
 [ENGINE]
 AddDisplaySuperSamplingResolutions=false
 EnableVSync=false
@@ -445,12 +499,30 @@ ForceLodBias=false
 LodBias=0.0
 MaxAnisotropy=16
 VSyncSkipNumFrames=0
+```
 
+  - ```AddDisplaySuperSamplingResolutions```: Set to false! This parameter enables downsampling to be used without having to force it through the graphics driver. It is recommended to remain disabled and only to be used by advanced users. In the most basic explanation, downsampling is rendering the game at twice the monitor's set resolution and then downsampling it to the correct resolution before being displayed on the monitor. This mimics supersampling. For this to work, users must enable this parameter, run in full screen mode, set the resolution in SkyrimPrefs.ini to 2x the monitor's set resolution, and set UseDefferedRendering=false under [GLOBAL]. For a more in-depth explanation and how-to's using the video drivers rather than the ENB parameter below, see [this article](http://www.tested.com/tech/pcs/454383-aliasing-be-gone-how-downsample-pc-games/).
+  - ```EnableVSync```: Set to false! It is recommended to use driver-level VSync.
+  - ```ForceAnisotropicFiltering```: Set to true! This will force anisotropic filtering for all textures with a linear filtering type. Textures which should not have anisotropic filtering are not filtered.
+  - ```ForceLodBias```: set to false! This parameter forces LOD Bias for all LOD textures.
+  - ```LodBias```: Set to 0.0! LOD Bias controls the sharpness of LOD textures. Values should be between -0.5 and 0.5; any higher or lower and texture degradation is highly probable. Lower values result in sharper textures.
+  - ```MaxAnisotropy```: This is the level of anisotropy filtering for textures. The values are 2, 4, 6, 8, 10, 12, 14, and 16; higher values provide better quality. [TODO: check how it looks if set to 0 and rely on driver setting]
+  - ```VSyncSkipNumFrames```: Set to 0! This tells the frame buffer to ignore the back buffer 0, 1, 2, or 3 contiguous cycles before grabbing a frame. This feature is mainly for users with high refresh rate monitors (> 60Hz) and should be set to '0' for most other users.
+
+**Limiter Settings**
+
+```
 [LIMITER]
 EnableFPSLimit=false
 FPSLimit=58.0
 WaitBusyRenderer=false
+```
 
+If you use VSync you shouldn't limit the FPS at all since VSync inherently limits FPS to the monitor's refresh rate. If you use GSync it's recommended to leave these disabled and use [Nvidia Inspector](https://www.guru3d.com/files-details/nvidia-inspector-download.html)'s framerate limiter instead as ENB's limiter has proven to be unreliable (see Graphics Driver Settings for more info).
+
+**Input Settings**
+
+```
 [INPUT]
 KeyBruteForce=0
 KeyCombination=0
@@ -461,17 +533,37 @@ KeyFreeVRAM=109
 KeyScreenshot=0
 KeyShowFPS=0
 KeyUseEffect=106
+```
 
+You can define key codes here for various ENB functions. I leave most of them disabled (set to 0). You should assign at least ```KeyEditor``` so that you can open the ENB editor in-game.
+
+**Adaptive Quality Settings**
+
+```
 [ADAPTIVEQUALITY]
 DesiredFPS=20.0
 Enable=false
 Quality=1
+```
 
+Leave disabled! We're striving for a game with supreme visuals and will optimize by other means.
+
+**Antialiasing Settings**
+
+```
 [ANTIALIASING]
 EnableEdgeAA=true
 EnableSubPixelAA=true
 EnableTemporalAA=false
+```
 
+  - ```EnableEdgeAA```: The EdgeAA solution is excellent for low-end systems because the performance impact is very small; however, it does come with some blurriness. Mid to High-end systems may find SMAA a higher quality solution for EdgeAA; however, EdgeAA and SMAA can be used together for possibly even better results. Using these two solutions together will come at a small cost to performance. Set this to true.
+  - ```EnableSubPixelAA```: This parameter will enable SubPixelAA on specular reflections and should only cause a minimal performance impact. This setting recommended to be enabled.
+  - ```EnableTemporalAA```: Can be set to true for improved antialiasing but if your framerate drops below 40 you might experience ghosting on high motion objects. My AA looks fine without it so I leave it at false.
+
+**Fix Settings**
+
+```
 [FIX]
 FixAliasedTextures=true
 FixCursorVisibility=true
@@ -488,6 +580,21 @@ IgnoreInventory=false
 IgnoreLoadingScreen=false
 RemoveBlur=false
 ```
+
+  - ```FixAliasedTextures```: Set to true! This parameter helps reduce aliasing of snow on mountains and other similar objects. It is recommended to enable it, unless SMAA is being used.
+  - ```FixCursorVisibility```: Set to true! This fixes an issue with the cursor visibility after using Alt+Tab. When enabled, this will replace the Double Cursor Fix mod. It is recommended to be enabled.
+  - ```FixGameBugs```: Set to true! Allows the ENB to fix game rendering related issues and errors such as divide-by-zero errors that can cause crashes. The is normally not needed but can be safely enabled.
+  - ```FixLag```: Set to false! This feature will reduce some delays which are mainly experienced in windowed mode. These delays are actually frames skipping when the video card is under heavy load. This feature is an experimental hack which was made specifically for NVidia users, however, it may work for AMD users as well. It is new to v0.266 and, thus, not much testing has been done with it. It is disabled by default.
+  - ```FixParallaxBugs```: Set to true! This fixes parallax texture rendering issues by changing the shader used on those textures in order to render them correctly.
+  - ```FixParallaxTerrain```: Set to true! This feature adds parallax for terrain ground textures (soil, gravel, sand, rocks, etc.) in Skyrim. The above FixParallaxBugs parameter must also be enabled for this feature to work. This parameter is disabled by default. More info on this under the Mods/Texture & Mesh Replacers/Parallax Maps section.
+  - ```FixSkyReflection```: Set to true! This fixes an issue with the reflection of the sky flicking in some weathers. It is recommended to be enabled.
+  - ```FixSsaoHairTransparency```: Set to true! [TODO]
+  - ```FixSsaoWaterTransparency```: Set to true! Fixes some problems with ambient occlusion and water.
+  - ```FixSubSurfaceScattering```: Set to true!
+  - ```FixTintGamma```: Set to true! The is a fix for the small color differences in various parts of models such as hair.
+  - ```IgnoreInventory```: Set to false! Tells ENB whether it should be disabled while the inventory menu is open. Can in general be set to false (i.e. use ENB on inv screen) but if you face issues with rendering in the inventory then set this to true.
+  - ```IgnoreLoadingScreen```: Set to false! Same as above but for the loading screen.
+  - ```RemoveBlur```: Set to false! This parameter will remove Skyrim's static Depth of Field which is used to blur distance landscapes when some weathers are active, hiding LOD flaws well. The setting is generally left up to the ENB Preset. You won't break anything using two DoFs, you'll just get more focused blur.
 
 ---
 
@@ -584,7 +691,7 @@ The Crash fixes mod fixes many of the bugs, see the mod's website and `CrashFixP
 
 #### 9.3 Texture & Mesh Replacers
 
-**A Note On Parallax Maps**
+##### 9.3.1 Parallax Maps
 
 Some texture mods include parallax maps. Parallax mapping is just a fancy word for height maps that can be utilized by ENB to make textures look more '3D'. Normal maps do that, too but parallax maps [go a few steps further](https://en.wikipedia.org/wiki/Parallax_mapping) to make the depth effect of textures look even more realistic. ENB distinguishes parallax maps for two different texture types:
 

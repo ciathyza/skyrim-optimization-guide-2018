@@ -328,7 +328,7 @@ Go to your Nvidia graphics card driver settings (right-click on desktop, choose 
 | Vertical sync                                       | On                     |
 | Virtual Reality pre-rendered frames                 | Application-controlled |
 
-##### For G-Sync Users
+##### 7.1.1 For G-Sync Users
 
 If you have a G-Sync capable monitor it's recommend to use G-Sync and vertical sync together because it will solve any performance limitations introduced by VSync. It is recommended to use both. Read [this guide](https://www.blurbusters.com/gsync/gsync101-input-lag-tests-and-settings/14/) to see why. To use G-Sync with Skyrim you need to make the following tweaks:
 
@@ -354,20 +354,49 @@ After this you should still limit the framerate to 57 FPS but since ENB's FPS li
 
 After these tweaks Skyrim should run properly with GSync and in-game physics should not go bonkers either. Your monitor will now refresh the image according to what FPS the game is currently running at, thus eliminating tearing and any performance drawbacks introduced by VSync solely.
 
-#### 7.2 Monitor Calibration
+#### 7.2 Custom Screen Resolutions
+
+[TODO]
+
+#### 7.3 Monitor Calibration
+
+##### 7.3.1 Enabling Full RGB Dynamic Output Range
+
+This is for Nvidia users again.
+[TODO]
+
+##### 7.3.2 Monitor Gamma & Whitebalance Adjustment
+
+[TODO]
 
 #### 7.3 ENB
 
-The goal of this section is to install Rudy ENB and tweak it for optimal quality and performance on your system. Additionally we will replace the ENB's DoF (Depth of Field) with that of RealVision ENB. The reason for this is that while Rudy ENB's DoF looks great it's not well suited for gameplay. The DoF uses a center point to determine whether to apply DoF or not and it generally is only good for screen archery but not for constant camera movement. RealVision's DoF on the other works very well even with a lot of camera movement.
+The goal of this section is to install Rudy ENB and tweak it for optimal quality and performance on your system. Additionally we will replace the ENB's DoF (Depth of Field) with that of RealVision ENB. The reason for this is that while Rudy ENB's DoF looks great it's not well suited for gameplay. The DoF uses a center point to determine whether to apply DoF or not and it generally is only good for screen archery but not for constant camera movement. RealVision's DoF on the other works very well even with a lot of camera movement and looks fantastic.
 
-Rudy ENB is a good allround ENB that's very tweakable and delivers an excellent image with beautiful colors and sharpness of textures. It's also relatively performant and modern and has support for various weather and lighting mods. We will set up Rudy ENB for use with **Climates of Tamriel**!
+Rudy ENB is a great allround ENB that's very tweakable and delivers an excellent image with beautiful colors and sharpness of textures. It's also relatively performant and modern and has support for various weather and lighting mods. In this guide we will set up Rudy ENB for use with **Climates of Tamriel**!
 
 You need two files to get started:
-  - [ENBoost v0.319](http://enbdev.com/download_mod_tesskyrim.html)
+
+  - [ENBoost v0.319](http://enbdev.com/download_mod_tesskyrim.html) (On that page click the version and the download link is at the bottom of the next page!)
   - [Rudy ENB](https://www.nexusmods.com/skyrim/mods/41482) (download the **Rudy ENB for CoT** version)
 
 Also get the VRAM Size test tool from enbdev:
+
   - [VRAM Size Test](http://enbdev.com/download_vramsizetest.htm)
+
+To install the ENB follow these steps:
+
+  1. Unpack the ENBoost archive downloaded from enbdev.com (*enbseries_skyrim_v0319.zip*) and copy the files ***d3d9.dll*** and ***enbhost.exe*** from the ***WrapperVersion*** folder to your Skyrim folder (where *TESV.exe* resides). You can delete the other files from the unpacked archive afterwards.
+  2. Unpack the downloaded Rudy ENB archive.
+  3. Copy the contents of ***[ Skyrim folder ]*** (***enbseries*** folder and ***enbseries.ini***) to your Skyrim folder.
+  4. If you don't have a ***enblocal.ini*** in your Skyrim folder yet, copy over the one included from the ***!!! enblocal.ini_...*** folder.
+  5. Go into the included ***[ Data folder ]*** folder. There, zip the contents of that folder, name the zip something like ***Rudy ENB Files.zip*** and install that zip as a mod with Mod Organizer.
+  6. There are optional DoF configs and rain textures included in Rudy ENB but we won't need them. The Optional DOF looks nice but isn't very suitable for gameplay. The Optional stronger DoF looks great on screenshots but makes you feel like you need strong glasses when playing the game.
+  7. Instead we will use the DoF config from RealVision ENB which happens to be perfectly compatible with Rudy ENB ...
+  8. Download RealVision ENB from [www.nexusmods.com/skyrim/mods/30936](https://www.nexusmods.com/skyrim/mods/30936). You only need the main file (RealVision ENB 315b).
+  9. [TODO] Find RV DoF files!
+
+
 
 ---
 

@@ -243,7 +243,7 @@ fSunShadowUpdateTime=0.25
 fSunUpdateThreshold=1.5
 ```
 
-  - `fSunShadowUpdateTime`: Determines the time in seconds at which the sun position is updated which in turn causes the shadow to move. I found that this looks best to me when left at default value (0.25). Alternatively you can try setting this to 1 and ```fSunUpdateThreshold``` to 0.05.
+  - `fSunShadowUpdateTime`: Determines the time in seconds at which the sun position is updated which in turn causes the shadow to move. I found that this looks best to me when left at default value (0.25). Alternatively you can try setting this to 1.0 and ```fSunUpdateThreshold``` to 0.05.
   - `fSunUpdateThreshold`: Determines the time between sun-shadow transitions. A value of 0.05 is equal to 1 second, so a value of 1 equals 20 seconds and a value of 0.005 equals 100 milliseconds. Increasing this also increases the distance the shadows will move during the transition. Again I found this looks best at default value (1.5).
 
 #### 6.3 Skyrimprefs.ini
@@ -305,7 +305,7 @@ Go to your Nvidia graphics card driver settings (right-click on desktop, choose 
 | Nvidia Setting                                      | Recommended Value      |
 |:----------------------------------------------------|:-----------------------|
 | Ambient Occlusion                                   | Off                    |
-| Anisotropic Filtering                               | 8x                     |
+| Anisotropic Filtering                               | Application-controlled |
 | Antialiasing - FXAA                                 | Not supported          |
 | Antialiasing - Gamma correction                     | On                     |
 | Antialiasing - Mode                                 | Application-controlled |
@@ -452,7 +452,7 @@ VideoMemorySizeMb=22320
   - ```ReservedMemorySizeMb```: This can be set to any value from 64 onwards. If you get stutter your actions will depend on your Windows version:
     - **Windows 7** or the **Windows 10 with Fall Creators Update**: Increase in blocks of 16 or 32 until gameplay becomes smooth. At higher values, you will see diminishing returns so values above 1024 may not be beneficial.
     - **Windows 8**, **Windows 8.1** or **Windows 10 prior to the October 2017 Fall Creators Update**: Increase in blocks of 16 or 32 until gameplay becomes smooth, but stop at 512, you're limited to 4064MB, you want to keep as much of that for actual rendering as you can. While your display driver knows it can use more VRAM and shared system RAM, Skyrim/ENB can't.
-    - ```VideoMemorySizeMb```: Run the VRAM Size Test tool you've downloaded earlier as admin (the DX9 version). This will give you the value to be entered here. Since I have 32GB RAM my value will be 22320MB (That's about 21GB of additional VRAM!) Boris' DX9 tool measures how much memory is available to ENB. This memory is used for enbhost.exe processes, which include both post-processing and serving as an additional pool of video memory for Skyrim. What this means: Skyrim's rather buggy and limited system of moving things in and out of video memory is hacked by enbhost.exe, and now Skyrim can use the memory it can access as well as the memory ENB can access.
+    - ```VideoMemorySizeMb```: Run the VRAM Size Test tool you've downloaded earlier as admin (the DX9 version). This will give you the value to be entered here. Since I have 32GB RAM my value will be 22320MB (That's about 21GB of additional VRAM!) Make sure to close memory-hogging apps (such as Google Chrome) before using the tool! Boris' DX9 tool measures how much memory is available to ENB. This memory is used for enbhost.exe processes, which include both post-processing and serving as an additional pool of video memory for Skyrim. What this means: Skyrim's rather buggy and limited system of moving things in and out of video memory is hacked by enbhost.exe, and now Skyrim can use the memory it can access as well as the memory ENB can access.
 
 All other memory settings should be left as above.
 
@@ -504,10 +504,12 @@ VSyncSkipNumFrames=0
   - ```AddDisplaySuperSamplingResolutions```: Set to false! This parameter enables downsampling to be used without having to force it through the graphics driver. It is recommended to remain disabled and only to be used by advanced users. In the most basic explanation, downsampling is rendering the game at twice the monitor's set resolution and then downsampling it to the correct resolution before being displayed on the monitor. This mimics supersampling. For this to work, users must enable this parameter, run in full screen mode, set the resolution in SkyrimPrefs.ini to 2x the monitor's set resolution, and set UseDefferedRendering=false under [GLOBAL]. For a more in-depth explanation and how-to's using the video drivers rather than the ENB parameter below, see [this article](http://www.tested.com/tech/pcs/454383-aliasing-be-gone-how-downsample-pc-games/).
   - ```EnableVSync```: Set to false! It is recommended to use driver-level VSync.
   - ```ForceAnisotropicFiltering```: Set to true! This will force anisotropic filtering for all textures with a linear filtering type. Textures which should not have anisotropic filtering are not filtered.
-  - ```ForceLodBias```: set to false! This parameter forces LOD Bias for all LOD textures.
+  - ```ForceLodBias```: Set to false! This parameter forces LOD Bias for all LOD textures.
   - ```LodBias```: Set to 0.0! LOD Bias controls the sharpness of LOD textures. Values should be between -0.5 and 0.5; any higher or lower and texture degradation is highly probable. Lower values result in sharper textures.
-  - ```MaxAnisotropy```: This is the level of anisotropy filtering for textures. The values are 2, 4, 6, 8, 10, 12, 14, and 16; higher values provide better quality. [TODO: check how it looks if set to 0 and rely on driver setting]
-  - ```VSyncSkipNumFrames```: Set to 0! This tells the frame buffer to ignore the back buffer 0, 1, 2, or 3 contiguous cycles before grabbing a frame. This feature is mainly for users with high refresh rate monitors (> 60Hz) and should be set to '0' for most other users.
+  - ```MaxAnisotropy```: Set to 16!  
+This is the level of anisotropy filtering for textures. The values are 2, 4, 6, 8, 10, 12, 14, and 16; higher values provide better quality.   Alternatively You can set it to 8 to save 1-2 FPS.
+  - ```VSyncSkipNumFrames```: Set to 0!  
+This tells the frame buffer to ignore the back buffer 0, 1, 2, or 3 contiguous cycles before grabbing a frame. This feature is mainly for users with high refresh rate monitors (> 60Hz) and should be set to '0' for most other users.
 
 **Limiter Settings**
 

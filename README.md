@@ -203,28 +203,32 @@ Install the tool where you keep all your modding tools. Once installed, close Mo
   5. **Basic tab**: ensure ```BethINI Presets``` is selected, click the ```Default``` button to reset the INI files.
   6. Click the ```High``` button and then check ```Recommended Tweaks```.
   7. Ensure ```ENB Mode``` is checked as well as ```Enable File Selection```.
-  8. Ensure ```Fullscreen Mode``` is checked.
+  8. Ensure ```Windowed Mode``` is unchecked.
   9. If you don't use a GSync screen, ensure that ```V-Sync``` is checked, otherwise uncheck it.
   10. Ensure ```Anisotropic Filtering``` is set to ```None```.
-  11. **General tab**: No changes required here!
-  12. **Gameplay tab**: Set the ```Over-Encumber reminder``` to ```3600```.
-  13. **Interface tab**: Ensure ```Fix Map Menu Navigation``` and ```Remove Map Menu Blur``` are checked.
-  14. Set the quest markers, compass and subtitles options to your preference.
-  15. Mouse settings are recommended to be left at defaults.
-  16. Detail tab: If using a 16:9 screen (1080p, 1440p) it's recommended to set ```Field of View``` to ```70.59```. 16:10 users (1680x1050, 1920x1200) should leave this at ```65```. Alternatively, you can set it to your preferable value, e.g. ```90``` or leave this at ```65``` and use the Customizable Camera mod from the Nexus to handle all aspects of the camera from an MCM menu with the ability to save preset profiles.
-  17. Ensure that ```Reflect Sky``` is checked.
-  18. Set ```Particles``` to ```10000```.
-  19. **View Distance tab**: Set values as follows:
+  11. Choose your screen resolution for playing the game. You can enter custom resolutions. Since I'm playing on 21:9 ultra-widescreen but don't want to run Skyrim at the highest-supported resolution I created a custom resolution in the Nvidia Control Panel and entered that one here (2560 x 1080).
+  12. **General tab**: No changes required here!
+  13. **Gameplay tab**: Set the ```Over-Encumber reminder``` to ```3600```.
+  14. Optionally, check ```NPCs Use Ammo``` if you prefer a bit more realism.
+  15. **Interface tab**: Ensure ```Fix Map Menu Navigation``` and ```Remove Map Menu Blur``` are checked.
+  16. Set the quest markers, compass and subtitles options to your preference.
+  17. Mouse settings are recommended to be left at defaults.
+  18. **Detail tab**: Set ```Texture Quality``` to Ultra.
+  19. If using a 16:9 screen (1080p, 1440p) it's recommended to set ```Field of View``` to ```70.59```. 16:10 users (1680x1050, 1920x1200) should leave this at ```65```. Alternatively, you can set it to your preferable value, e.g. ```90``` or leave this at ```65``` and use the Customizable Camera mod from the Nexus to handle all aspects of the camera from an MCM menu with the ability to save preset profiles.
+  20. Ensure that ```Reflect Sky``` is checked.
+  21. Set ```Particles``` to ```10000```.
+  22. Set ```Shadow Resolution``` to 4096.
+  23. **View Distance tab**: Set values as follows:
     - Object Fade: 15
     - Actor Fade: 15
     - Item Fade: 15
     - Grass Fade: Max
     - Light Fade: Max
-  20. For ```Distant Object Detail``` choose the high preset.
-  21. **Visuals tab**: Ensure ```Gamma``` is set to ```1``` (this depends on the ENB you use but since this guide uses Rudy ENB we will use a value of 1).
-  22. Ensure ```Grass Diversity``` is set to ```15``` and ```Grass Density``` is set to ```60``` (very dense grass). These values are for use with Skyrim Flora Overhaul and Verdant Grass. You can use a larger density value if 60 is too much of a performance hit.
-  23. Set ```Far-off Tree Distance``` to ```40000```.
-  24. Head back to the **Basic tab** and click ```Save and Exit```.
+  24. For ```Distant Object Detail``` choose the high preset.
+  25. **Visuals tab**: Ensure ```Gamma``` is set to ```1``` (this depends on the ENB you use but since this guide uses Rudy ENB we will use a value of 1).
+  26. Ensure ```Grass Diversity``` is set to ```15``` and ```Grass Density``` is set to ```60``` (very dense grass). These values are for use with Skyrim Flora Overhaul and Verdant Grass. You can use a larger density value if 60 is too much of a performance hit.
+  27. Set ```Far-off Tree Distance``` to ```40000```.
+  28. Head back to the **Basic tab** and click ```Save and Exit```.
 
 Next we're going to adjust some settings in the Ini files that BethINI didn't take care of ...
 
@@ -332,12 +336,14 @@ Go to your Nvidia graphics card driver settings (right-click on desktop, choose 
 
 If you have a G-Sync capable monitor it's recommend to use G-Sync and vertical sync together because it will solve any performance limitations introduced by VSync. It is recommended to use both. Read [this guide](https://www.blurbusters.com/gsync/gsync101-input-lag-tests-and-settings/14/) to see why. To use G-Sync with Skyrim you need to make the following tweaks:
 
-In Skyrim.ini, disable vertical sync:
+In *Skyrim.ini*, disable vertical sync:
+
 ```
 iPresentInterval=0
 ```
 
-In enblocal.ini, disable vertical sync and FPS limiter:
+In *enblocal.ini*, disable vertical sync and FPS limiter:
+
 ```
 EnableVSync=false
 EnableFPSLimit=false
@@ -356,7 +362,7 @@ After these tweaks Skyrim should run properly with GSync and in-game physics sho
 
 #### 7.2 Custom Screen Resolutions
 
-[TODO]
+I'm playing on a 21:9 ultra-widescreen monitor with a native resolution of 3440 x 1440 but playing Skyrim at that resolution would decrease the framerate considerably so I'm fine with playing at 2560 x 1080. This resolution however isn't predefined in the factory Nvidia driver settings so I had to create a custom resolution for it. You can easily do this in the Nvidia Control Panel under Screen Resolutions if you need a custom resolution. Just make sure the resolution is actually supported by your monitor.
 
 #### 7.3 Monitor Calibration
 
@@ -384,6 +390,8 @@ Also get the VRAM Size test tool from enbdev:
 
   - [VRAM Size Test](http://enbdev.com/download_vramsizetest.htm)
 
+##### 7.3.1 ENB Installation
+
 To install the ENB follow these steps:
 
   1. Unpack the ENBoost archive downloaded from enbdev.com (*enbseries_skyrim_v0319.zip*) and copy the files ***d3d9.dll*** and ***enbhost.exe*** from the ***WrapperVersion*** folder to your Skyrim folder (where *TESV.exe* resides). You can delete the other files from the unpacked archive afterwards.
@@ -395,6 +403,8 @@ To install the ENB follow these steps:
   7. Instead we will use the DoF config from RealVision ENB which happens to be perfectly compatible with Rudy ENB ...
   8. Download RealVision ENB from [www.nexusmods.com/skyrim/mods/30936](https://www.nexusmods.com/skyrim/mods/30936). You only need the main file (RealVision ENB 315b).
   9. [TODO] Find RV DoF files!
+
+##### 7.3.2 enblocal.ini
 
 Now that you have all necessary ENB files installed we're going to configure the ENB. Open *enblocal.ini* with a text editor and    adapt the values as follows ...
 
@@ -506,10 +516,8 @@ VSyncSkipNumFrames=0
   - ```ForceAnisotropicFiltering```: Set to true! This will force anisotropic filtering for all textures with a linear filtering type. Textures which should not have anisotropic filtering are not filtered.
   - ```ForceLodBias```: Set to false! This parameter forces LOD Bias for all LOD textures.
   - ```LodBias```: Set to 0.0! LOD Bias controls the sharpness of LOD textures. Values should be between -0.5 and 0.5; any higher or lower and texture degradation is highly probable. Lower values result in sharper textures.
-  - ```MaxAnisotropy```: Set to 16!  
-This is the level of anisotropy filtering for textures. The values are 2, 4, 6, 8, 10, 12, 14, and 16; higher values provide better quality.   Alternatively You can set it to 8 to save 1-2 FPS.
-  - ```VSyncSkipNumFrames```: Set to 0!  
-This tells the frame buffer to ignore the back buffer 0, 1, 2, or 3 contiguous cycles before grabbing a frame. This feature is mainly for users with high refresh rate monitors (> 60Hz) and should be set to '0' for most other users.
+  - ```MaxAnisotropy```: Set to 16! This is the level of anisotropy filtering for textures. The values are 2, 4, 6, 8, 10, 12, 14, and 16; higher values provide better quality.   Alternatively You can set it to 8 to save 1-2 FPS.
+  - ```VSyncSkipNumFrames```: Set to 0! This tells the frame buffer to ignore the back buffer 0, 1, 2, or 3 contiguous cycles before grabbing a frame. This feature is mainly for users with high refresh rate monitors (> 60Hz) and should be set to '0' for most other users.
 
 **Limiter Settings**
 

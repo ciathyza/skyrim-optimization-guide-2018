@@ -678,11 +678,41 @@ Note that you still have to make some exceptions for specific mods. Several of m
 
 This section will finally lead you through installing mods. We'll first install the most critical and essential ones and then work our way up through other mandatory mods that have proven to be worthy. Eventually I will recommend some secondary mods that I found suitable for a base setup.
 
-#### 9.1 Mod Resources, Bug Fixes & Patches
+#### 9.1 Mod Resources
 
-**Crash Fixes Mod & SKSE Plugin Preloader**
+Mods of type **Mod Resources** contain files that provide functionality and/or assets for many other mods. Because of that we will install these first.
 
-If you were cursing at your heavily modded Skyrim crashing approx. every 30 minutes there is finally a cure for you! These two amazing tweaks will likely fix most of your Skyrim LE crashes. The Crash Fixes mod eliminates 99.9% of crashes for me and it will most likely for you!
+| Mod | Details |
+|:--|:--|
+| SKSE Scripts | This mod should contain all the SKSE-related files installed in the Data folder, .e.g. SKSE Scripts and Ini. |
+| PapyrusUtil |  |
+| NetImmerse Override |  |
+| JContainers |  |
+| FISS |  |
+| HDT Physics Extensions |  |
+| HDT HighHeels System |  |
+
+#### 9.2 Bug Fixes & Patches
+
+| Mod | Details |
+|:--|:--|
+| Unofficial Skyrim Legendary Edition Patch (USLEEP) |  |
+| Load Game CTD Fix |  |
+| Crash Fixes Mod & SKSE Plugin Preloader | These two amazing tweaks will likely fix most of your Skyrim LE crashes. The Crash Fixes mod eliminates 99.9% of crashes for me and it will most likely for you! |
+| ShowRaceMenu Precache Killer |  |
+| Fuz Ro D-oh - Silent Voice |  |
+| Fix Lip Sync |  |
+| Enchantment Reload Fix |  |
+| Brawl Bugs Patch |  |
+| Invisibility Glitch - Eyes Fix |  |
+| Wiseman303's Flora Fixes |  |
+| Vampire Lord drain with Serana fix |  |
+| Hearthfire Display Case Fix |  |
+| Dragon Stalking Fix |  |
+| Weapons and Armor Fixes Remade |  |
+| Whiterun Texture Memory Usage Reduction |  |
+
+If you were cursing at your heavily modded Skyrim crashing approx. every 30 minutes there is finally a cure for you! 
 
   - [Crash Fixes by meh321](https://www.nexusmods.com/skyrim/mods/72725/?)
   - [SKSE Plugin Preloader](https://www.nexusmods.com/skyrim/mods/75795/?)
@@ -719,7 +749,11 @@ FixParallaxTerrain=false
   - ```FixParallaxBugs```: If set to true, enables parallax mapping for any non-ground objects. If an object texture comes with a parallax map the object receives parallax mapping, if not then the object will just be fine without it. Enabled by default and you can safely leave it on.
   - ```FixParallaxTerrain```: If true this applies parallax effects to ground textures. This is an 'all or nothing' switch! If enabled, all ground textures are processed. In this case you should have texture mods installed that have a parallax map provided for all ground textures. If this is enabled and a ground texture doesn't have a parallax map then the ground covered with that texture will look trippy (in a not-good sense). Luckily there are a couple of texture mods that cover all ground textures and we're going to pick the best of them. For this guide you should enable this option because we are going to install texture mods that will cover all ground textures with parallax maps.
 
-#### 9.4 LODs
+#### 9.4 Water
+
+[TODO]
+
+#### 9.5 LODs
 
 [LODs](https://en.wikipedia.org/wiki/Level_of_detail) (Level Of Detail) are textures that are smaller and more resource-friendly than their full size counterparts and which are rendered by the game engine instead of hires textures when a textured object is far away from the player and texture detail isn't important because the object is in the distance. Simply put, the difference between LODs and [Mipmaps](https://en.wikipedia.org/wiki/Mipmap) is that LODs are actually not only lowres textures but also simplified meshes on which the textures are applied. Skyrim uses LODs for all large objects like rocks, trees, ground, houses, etc. to reduce the burden on the GPU. LODs can be generated with different levels of resolution and quality and this section walks you through generating the best-posssible LODs that wont eat up too much of your available VRAM. We will use three different tools to accomplish this: **TES5LODGen**, **TexGen**, and **DynDOLOD** and we set up these tools in Mod Organizer so that re-generating LODs will take the least amount of efforts because you will need to re-generate LODs from time to time after you installed new texture packs or mods like houses or city improvements, etc.
 

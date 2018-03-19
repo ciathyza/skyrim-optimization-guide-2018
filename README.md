@@ -309,7 +309,7 @@ Go to your Nvidia graphics card driver settings (right-click on desktop, choose 
 | Nvidia Setting                                      | Recommended Value      |
 |:----------------------------------------------------|:-----------------------|
 | Ambient Occlusion                                   | Off                    |
-| Anisotropic Filtering                               | Application-controlled |
+| Anisotropic Filtering                               | 16x |
 | Antialiasing - FXAA                                 | Not supported          |
 | Antialiasing - Gamma correction                     | On                     |
 | Antialiasing - Mode                                 | Application-controlled |
@@ -332,7 +332,11 @@ Go to your Nvidia graphics card driver settings (right-click on desktop, choose 
 | Vertical sync                                       | On                     |
 | Virtual Reality pre-rendered frames                 | Application-controlled |
 
-##### 7.1.1 For G-Sync Users
+##### 7.1.1 A Note On Anisotropic Filtering
+
+Yes you could set this to ```Application-controlled``` in the driver settings and instead use ENB-based anisotropic filtering but in my experience this doesn't look as good as driver-level filtering, in particular because ENB seems to decide which textures get filtered by what amount and you will end up with some textures not being processed by the filtering. Anti-aliasing seems to also play into this as I noticed more jagged textures with ENB-based filtering than with driver-level filtering. So my recommendation is to use driver-level Anisotropic Filtering. Alternatively, set this to ```8x``` if ```16x``` is too much of a framerate hit.
+
+##### 7.1.2 For G-Sync Users
 
 If you have a G-Sync capable monitor it's recommend to use G-Sync and vertical sync together because it will solve any performance limitations introduced by VSync. It is recommended to use both. Read [this guide](https://www.blurbusters.com/gsync/gsync101-input-lag-tests-and-settings/14/) to see why. To use G-Sync with Skyrim you need to make the following tweaks:
 
@@ -371,7 +375,7 @@ I'm playing on a 21:9 ultra-widescreen monitor with a native resolution of 3440 
 This is for Nvidia users again.
 [TODO]
 
-##### 7.3.2 Monitor Gamma & Whitebalance Adjustment
+##### 7.3.2 Monitor Gamma & White Balance Adjustment
 
 [TODO]
 
@@ -379,7 +383,7 @@ This is for Nvidia users again.
 
 The goal of this section is to install Rudy ENB and tweak it for optimal quality and performance on your system. Additionally we will replace the ENB's DoF (Depth of Field) with that of RealVision ENB. The reason for this is that while Rudy ENB's DoF looks great it's not well suited for gameplay. The DoF uses a center point to determine whether to apply DoF or not and it generally is only good for screen archery but not for constant camera movement. RealVision's DoF on the other works very well even with a lot of camera movement and looks fantastic.
 
-Rudy ENB is a great allround ENB that's very tweakable and delivers an excellent image with beautiful colors and sharpness of textures. It's also relatively performant and modern and has support for various weather and lighting mods. In this guide we will set up Rudy ENB for use with **Climates of Tamriel**!
+Rudy ENB is a great all-round ENB that's very tweakable and delivers an excellent image with beautiful colors and sharpness of textures. It's also relatively performant and modern and has support for various weather and lighting mods. In this guide we will set up Rudy ENB for use with **Climates of Tamriel**!
 
 You need two files to get started:
 
@@ -780,17 +784,20 @@ Next you link the three tools to Mod Organizer so that you can launch them over 
   - **Issue**: Skyrim takes screenshots whenever I press the <key>End</key> key (In particular frustrating if you're a left-hander using the End key as your 'Use' key).
   **Solution**: You most likely have an ENB installed that contains a file named *injector.ini*. It is there where this obnoxious keyboard shortcut hides. You might want to remove all the keyboard assignments defined in this file:
 
-```
-[injector]
-;toggle shader keycode
-key_toggle =
+	```
+	[injector]
+	;toggle shader keycode
+	key_toggle =
+	
+	;make screenshot keycode
+	key_screenshot =
+	
+	;reload shader files keycode
+	key_reload =
+	```
 
-;make screenshot keycode
-key_screenshot =
-
-;reload shader files keycode
-key_reload =
-```
+  - **Issue:** The framerate goes down considerably but it seems not to be related to rendering.  
+  **Solution:** One possible cause for FPS slowdown over time that is not related to rendering might be HDT physics issues. Please see [this thread](https://www.reddit.com/r/skyrimmods/comments/84sk8y/strange_framerate_slowdown_issue/) if you use BodySlide and custom skeletons for a possible fix.
 
 ---
 

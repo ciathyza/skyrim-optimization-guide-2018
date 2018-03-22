@@ -54,7 +54,7 @@ As a reference, this guide is based on the following system:
 | PSU        | Corsair HX1000i                              |
 | CPU Cooler | Noctua NH - U12s                             |
 | Case       | Antec Performance One Series P183 V3         |
-| Screen     | ASUS PG348Q ROF Swift 21:9                   |
+| Screen     | ASUS PG348Q ROG Swift 21:9                   |
 | Mouse      | Razer Lancehead Tournament Edition (Wired)   |
 | Keyboard   | Filco Majestouch (Cherry Blue Switches)      |
 | OS         | Windows 10 64bit                             |
@@ -206,7 +206,7 @@ Install the tool where you keep all your modding tools. Once installed, close Mo
   8. Ensure ```Windowed Mode``` is unchecked.
   9. If you don't use a GSync screen, ensure that ```V-Sync``` is checked, otherwise uncheck it.
   10. Ensure ```Anisotropic Filtering``` is set to ```None```.
-  11. Choose your screen resolution for playing the game. You can enter custom resolutions. Since I'm playing on 21:9 ultra-widescreen but don't want to run Skyrim at the highest-supported resolution I created a custom resolution in the Nvidia Control Panel and entered that one here (2560 x 1080).
+  11. Choose your screen resolution for playing the game. You can enter custom resolutions. Since I'm playing on 21:9 ultra-widescreen but don't want to run Skyrim at the highest-supported resolution I created a custom resolution in the Nvidia Control Panel and entered that one here (2580 x 1080).
   12. **General tab**: No changes required here!
   13. **Gameplay tab**: Set the ```Over-Encumber reminder``` to ```3600```.
   14. Optionally, check ```NPCs Use Ammo``` if you prefer a bit more realism.
@@ -366,7 +366,7 @@ After these tweaks Skyrim should run properly with GSync and in-game physics sho
 
 #### 7.2 Custom Screen Resolutions
 
-I'm playing on a 21:9 ultra-widescreen monitor with a native resolution of 3440 x 1440 but playing Skyrim at that resolution would decrease the framerate considerably so I'm fine with playing at 2560 x 1080. This resolution however isn't predefined in the factory Nvidia driver settings so I had to create a custom resolution for it. You can easily do this in the Nvidia Control Panel under Screen Resolutions if you need a custom resolution. Just make sure the resolution is actually supported by your monitor.
+I'm playing on a 21:9 ultra-widescreen monitor with a native resolution of 3440 x 1440 but playing Skyrim at that resolution would decrease the framerate considerably so I'm fine with playing at 2580 x 1080. This resolution however isn't predefined in the factory Nvidia driver settings so I had to create a custom resolution for it. You can easily do this in the Nvidia Control Panel under Screen Resolutions if you need a custom resolution. Just make sure the resolution is actually supported by your monitor.
 
 #### 7.3 Monitor Calibration
 

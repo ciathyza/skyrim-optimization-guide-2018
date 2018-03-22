@@ -372,12 +372,28 @@ I'm playing on a 21:9 ultra-widescreen monitor with a native resolution of 3440 
 
 ##### 7.3.1 Enabling Full RGB Dynamic Output Range
 
-This is for Nvidia users again.
-[TODO]
+This is for Nvidia users again. Be sure to enable full RGB dynamic range in your Nvidia control panel. The setting might be reset to limited after a new driver install.
+
+If the option to switch to full RGB dynamic range is disabled or not visible in your Nvidia Control panel you can try this fix to enable it: [www.reddit.com/r/Vive/comments/7adzrr/nvidia_doesnt_display_full_rgb_use_this_fix](https://www.reddit.com/r/Vive/comments/7adzrr/nvidia_doesnt_display_full_rgb_use_this_fix/)
+
+More info about the issue at [pcmonitors.info/articles/correcting-hdmi-colour-on-nvidia-and-amd-gpus](https://pcmonitors.info/articles/correcting-hdmi-colour-on-nvidia-and-amd-gpus/)
 
 ##### 7.3.2 Monitor Gamma & White Balance Adjustment
 
-[TODO]
+How to adjust gamma and white balance depends on your monitor but let me give an example on how I set it for the ASUS PG348Q. You should definitely do some research for your screen model and see if you can set it to the optimal gamma and WB values. I was surprised by how much contrast and darker black I could get out of this screen after adjusting the settings. Skyrim looks way better with this!
+
+The guide I followed for the was posted here by user willverduzco ... [www.overclock.net/forum/44-monitors-displays/1591317-official-asus-rog-swift-pg348q-owners-club-271.html#post25690268](http://www.overclock.net/forum/44-monitors-displays/1591317-official-asus-rog-swift-pg348q-owners-club-271.html#post25690268). He also provides a color profile for download. To quote his instructions for the Asus PG348Q:
+
+> Set your GameVisual mode to RACING. This is very important because some of the other modes mess with Gamma to help you see in dim scenes!
+> Go to the color tab and set: Brightness 30, Contrast 50, and Color Temperature to User (R99, G94, B98). Note that Saturation will be greyed out.
+
+> Finally, if you want to fine tune that already great response with a software LUT in the form of an ICC, you can apply my latest color profile in Windows. To do this, go to the Color Management window (Advanced Display Settings -> Color Settings -> Color Management). Next, remove all other profiles on the target display. Finally, apply my latest profile and set it as default.
+
+> Again, please keep in mind that in order to use this color profile, you MUST set your GameVisual mode to Racing, your Brightness to 30, Contrast to 50, and Color Temperature to User (R99 G94 B98). I will also link to this post from my previous calibration posts to make sure people who see the old post have this latest option.
+
+Link to the ICC Color Profile for Windows: [drive.google.com/open?id=0BxnEA1OTspCUR2k0UEdRSVVKbDA](https://drive.google.com/open?id=0BxnEA1OTspCUR2k0UEdRSVVKbDA)
+
+... Obviously these instructions are only useful for PG348Q users. For any other screen you need to do your own research.
 
 #### 7.3 ENB
 

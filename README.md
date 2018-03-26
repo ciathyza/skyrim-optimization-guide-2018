@@ -788,7 +788,43 @@ After that you want to create three empty mods in Mod Organizer (right-click on 
   - TexGen Generated Files
   - DynDOLOD Generated LODs
 
-Next you link the three tools to Mod Organizer so that you can launch them over MO and so they place generated files right into the empty mods you've just created.
+Next you link the three tools to Mod Organizer so that you can launch them over MO and so they save generated files right into the empty mods you've just created.
+
+Install the DynDOLOD Resources from DynDOLOD mod with MO. Then download and install any other LOD mods you want to use and arrange them in MO at the bottom according to the following order (note that I've installed a couple of additional LOD resources):
+
+```
+------ LOD ---------------------------------------
+LOD - Indistinguishable Vanilla Tree Billboards
+LOD - Skyrim Flora Overhaul Billboards
+LOD - Realistic Aspen Tree Billboards
+LOD - Skyrim High Definition Dark LODs
+LOD - DynDOLOD Resources
+LOD - TES5LODGen Generated Files
+LOD - TexGen Generated Files
+LOD - DynDOLOD Generated Files
+```
+
+Now every time you have to regenerate LODs you can simply follow these steps:
+
+  1. Make sure your mod order is as desired and any new texture mods are enabled.
+  2. Uncheck DynDOLOD Resources.
+  3. Delete any generated files from TES5LODGen Generated Files, DynDOLOD Generated Files, and TexGen Generated Files (don't delete the meta.ini file in the mods).
+  4. Quit Mod Organizer and run it with admin privileges (required for some of the LOD tools to work correctly).
+  5. Launch TES5LODGen from MO and let it finish scanning files. Select all worldspaces in the left list and leave the settings as default (Build atlas with 2048x2048 atlas size, max texture size 512, in UV range 5.0, check Tree LODs). Click *Generate*.
+  6. After TES5LODGen is finished, close it and refresh the mod list (top menu above left-side mod list in MO).
+  7. Launch TexGen from MO and let it finish scanning files. As Output Path make sure that it points to your physical *TexGen Generated Files* folder in your Mod Organizer/Skyrim/mods path. Set LOD Texture Size to 512 and click *Start*.
+  8. After TexGen is finished, close it and refresh the mod list as before. Your *TexGen Generated Files* mod should now contain the textures created by TexGen.
+  9. Enable the *DynDOLOD Resources* mod!
+  10. Launch DynDOLOD from MO and let it finish scanning files.
+  11. Click the *Advanced* button.
+  12. Select all worldspaces in the top-left list.
+  13. Click the Medium button.
+  14. Make sure the following settings apply: check Candles, check Generate static LOD, check Create texture atlas, Max tile size 512, Generate tree LOD, LOD brightness 0, Generate DynDOLOD, NearGridToLoad 11, FarGridToLoad 21, check Windows, check High, check Fake lights selected world.
+  15. Ensure that the Output path is set to your physical *DynDOLOD Generated Files* folder in your Mod Organizer/Skyrim/mods path.
+  16. Click OK and get a cup of coffee while DynDOLOD is doing its work.
+  17. After DynDOLOD is finished, close it and refresh the mod list as before. Your *DynDOLOD Generated Files* mod should now contain the files created by DynDOLOD.
+  18. In the right-side mod list enable the *DynDOLOD.esp*.
+  19. Done.
 
 ---
 

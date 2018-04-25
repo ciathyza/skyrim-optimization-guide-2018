@@ -646,7 +646,14 @@ Here are some general rules that should be followed for a clean and smooth runni
 
   1. Mod Resources
   2. Bugfixes & Patches
-  3. 
+  3. User Interface Mods
+  4. Camera Mods
+  5. Animations
+  6. Character Enhancements
+  7. Weather & Lighting Mods
+  8. Gameplay Mods
+  9. Crafting Mods
+  10. 
 
 #### 8.3 General Load Order
 

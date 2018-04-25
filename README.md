@@ -644,16 +644,44 @@ Here are some general rules that should be followed for a clean and smooth runni
 
 #### 8.2 Installation Order
 
+As we strive to create a solid base setup onto which we can add optional mods later, we will follow an order when it comes to installing mod categories. The mod installation will therefore be divided into three stages: **Base Setup**, **Location Changes**, and **Optional Mods**. The base setup will contain all mods to provide a solid game with a maximum of mods that improve gameplay, graphics, audio, UI, animations and so on. The location changes will deal with installing mods that change or add locations/cities/houses. The optional mods stage is used to install any other desirable mods such as companions, quests, creatures, weapons, armor, etc.
+
+Note that while this order should be followed as far as possible some mods require special ordering and/or a high priority in the load order. Luckily we can move around things later at any time in Mod Organizer.
+
+  - Base setup
+    - Mod Resources
+    - Bug fixes
+    - UI
+    - Animations
+    - Character Customization
+    - Gameplay
+    - Crafting
+    - Combat
+    - Textures & Models
+    - Audio
+    - LODs
+  - Location Changes
+    - New Areas
+    - City Enhancements
+    - Player Houses
+  - Optional Mods
+    - Companions
+    - Creatures
+    - Quests
+    - Weapons & Items
+    - Armor & Clothing
+
+
   1. Mod Resources
   2. Bugfixes & Patches
   3. User Interface Mods
   4. Camera Mods
   5. Animations
-  6. Character Enhancements
+  6. Character Customization
   7. Weather & Lighting Mods
   8. Gameplay Mods
   9. Crafting Mods
-  10. 
+  10. LODs
 
 #### 8.3 General Load Order
 

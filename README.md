@@ -650,14 +650,17 @@ Note that while this order should be followed as far as possible some mods requi
 
   - Base setup
     - Mod Resources
-    - Bug fixes
-    - UI
-    - Animations
+    - Bug Fixes
+    - User Interface
+    - Camera
+    - FNIS & Animations
+    - HDT Physics
     - Character Customization
     - Gameplay
     - Crafting
     - Combat
     - Textures & Models
+    - Weather & Lighting
     - Audio
     - LODs
   - Location Changes
@@ -670,18 +673,6 @@ Note that while this order should be followed as far as possible some mods requi
     - Quests
     - Weapons & Items
     - Armor & Clothing
-
-
-  1. Mod Resources
-  2. Bugfixes & Patches
-  3. User Interface Mods
-  4. Camera Mods
-  5. Animations
-  6. Character Customization
-  7. Weather & Lighting Mods
-  8. Gameplay Mods
-  9. Crafting Mods
-  10. LODs
 
 #### 8.3 General Load Order
 
